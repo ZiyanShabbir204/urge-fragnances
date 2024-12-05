@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import ScentedHero from "../../components/scentedCandle/ScentedHero";
+import Products from "../../components/scentedCandle/Products";
 
 const ScentedCandle = () => {
   return (
-    <div>ScentedCandle</div>
-  )
-}
+    <>
+      <ScentedHero />
+      <Products />
+    </>
+  );
+};
 
-export default ScentedCandle
+export default ScentedCandle;

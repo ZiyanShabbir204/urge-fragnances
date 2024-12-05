@@ -23,10 +23,14 @@ export default {
         customWoodSmoke: "#0B0C0C",
         customMineShaft : "#303030",
         customInternationalKleinBlue:"#0026A3",
-        customLightGray: "#F5F8FA",
+        customBlack: "#232323",
+        customLightGray: "#EBEBEB",
         customNero : "#262626",
-        customDarkBlue : "rgb(0 ,13 ,40)",
-        customNexusGray : "#333333"
+        customBrown : "#513A28",
+        customBeige :  "#DFD5C0",
+        customLightBrown: "#816F4C"
+
+       
 
       },
       fontSize: {
