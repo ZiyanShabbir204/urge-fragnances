@@ -1,3 +1,4 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import Footer from './components/footer/Footer'
 import Navbar from './components/navbar/Navbar'
@@ -8,12 +9,15 @@ import ScentedCandle from './pages/scentedCandle/ScentedCandle'
 function App() {
 
   return (
-    <>
-      {/* <Navbar></Navbar>
-      <Home></Home>
-      <ScentedCandle/>
-      <Footer/> */}
-    </>
+    <BrowserRouter>
+    <Navbar></Navbar>
+    <Routes>
+      <Route exact path="/" element={<Home></Home>}></Route>
+      <Route exact path="/scentedCandle" element={<ScentedCandle></ScentedCandle>}></Route>
+      <Route exact path="/productpage" element={<ProductPage></ProductPage>}></Route>
+    </Routes>
+    <Footer></Footer>
+    </BrowserRouter>
   )
 }
 

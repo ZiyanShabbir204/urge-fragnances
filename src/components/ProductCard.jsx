@@ -1,9 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ProductCard = ({ image, name, price }) => {
     // shadow-[-2px_8px_24px_2px_rgba(0,0,0,0.07)]
   return (
-    <div className="flex flex-col items-center justify-center shadow-md bg-white-100  hover:scale-105 duration-300">
+    <Link to="/productpage" className="flex flex-col items-center justify-center shadow-md bg-white-100  hover:scale-105 duration-300">
       <div class="w-full max-w-sm mb-6">
         <img
           src={image}
@@ -18,7 +19,7 @@ const ProductCard = ({ image, name, price }) => {
    
         <p class="text-xl font-semibold text-gray-800">Rs. {price}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 
