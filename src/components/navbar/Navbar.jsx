@@ -71,7 +71,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="relative z-10 p-10 flex gap-40 items-center">
+      <div className="relative z-10 px-10 py-5 flex gap-40 items-center">
         <div className="logo text-4xl font-bold">Urge Fragnances</div>
         <div className="list">
           <ul className="text-3xl flex gap-10">
@@ -102,7 +102,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      <div className="p-10 absolute z-20 top-[6rem] w-0 hidden scent-div bg-white">
+      <div className="p-10 absolute z-20 top-[4rem] w-0 hidden scent-div bg-white">
         <ul className="text-2xl flex gap-10 items-center">
           <li className="cursor-pointer">
             link 1 of Scents
@@ -111,7 +111,7 @@ const Navbar = () => {
           <li className="cursor-pointer">link 3</li>
         </ul>
       </div>
-      <div className="p-10 absolute z-20 top-[6rem] w-0 hidden candle-div bg-white">
+      <div className="p-10 absolute z-20 top-[4rem] w-0 hidden candle-div bg-white">
         <ul className="text-2xl flex gap-10 items-center">
           <li className="cursor-pointer">
             link 1 of Candle
@@ -120,7 +120,7 @@ const Navbar = () => {
           <li className="cursor-pointer">link 3</li>
         </ul>
       </div>
-      <div className="p-10 absolute z-20 top-[6rem] w-0 hidden fragnance-div bg-white">
+      <div className="p-10 absolute z-20 top-[4rem] w-0 hidden fragnance-div bg-white">
         <ul className="text-2xl flex gap-10 items-center">
           <li className="cursor-pointer">
             link 1 of Fragnances
