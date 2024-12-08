@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import gsap from "gsap";
 import "./navbar.css"
+import Cart from "../cart/Cart";
 
 const Navbar = () => {
   const [activeItem, setActiveItem] = useState(null);
+  const [display,setDisplay] = useState("hidden")
+
+  const cartHandler = ()=>{
+      setDisplay("block")
+    }
 
   useEffect(() => {
     const scentDiv = document.querySelector(".scent-div");
@@ -12,6 +18,7 @@ const Navbar = () => {
     const listItem1 = document.getElementById("li-1");
     const listItem2 = document.getElementById("li-2");
     const listItem3 = document.getElementById("li-3");
+    
 
     const showDiv = (div, itemId) => {
       gsap.to(div, {
@@ -80,7 +87,7 @@ const Navbar = () => {
                 }`}
               id="li-1"
             >
-              Scents
+              Scented Candles
               <span className="absolute bottom-[-10px] left-0 w-0 h-[5px] bg-black transition-all duration-300 ease-in-out group-hover:w-full"></span>
             </li>
             <li
@@ -88,7 +95,7 @@ const Navbar = () => {
                 }`}
               id="li-2"
             >
-              Candles
+              Perfumes
               <span className="absolute bottom-[-10px] left-0 w-0 h-[5px] bg-black transition-all duration-300 ease-in-out group-hover:w-full"></span>
             </li>
             <li
@@ -96,12 +103,23 @@ const Navbar = () => {
                 }`}
               id="li-3"
             >
-              Fragrances
+              Perfume Wax
+              <span className="absolute bottom-[-10px] left-0 w-0 h-[5px] bg-black transition-all duration-300 ease-in-out group-hover:w-full"></span>
+            </li>
+
+            <li
+              className={`cursor-pointer relative group ${activeItem === "li-3" ? "active" : ""
+                }`}
+              id="li-3"
+              onClick={cartHandler}
+            >
+              Cart
               <span className="absolute bottom-[-10px] left-0 w-0 h-[5px] bg-black transition-all duration-300 ease-in-out group-hover:w-full"></span>
             </li>
           </ul>
         </div>
       </div>
+      <Cart display={display} setDisplay={setDisplay}/>
       <div className="p-10 absolute z-20 top-[4rem] w-0 hidden scent-div bg-white">
         <ul className="text-2xl flex gap-10 items-center">
           <li className="cursor-pointer">
