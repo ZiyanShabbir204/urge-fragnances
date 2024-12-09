@@ -4,14 +4,16 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [products, setProducts] = useState(
-    JSON.parse(localStorage.getItem("cart"))
+    JSON.parse(localStorage.getItem("cart")) === null
+      ? []
+      : JSON.parse(localStorage.getItem("cart"))
   );
-  const [totalBill,setTotalBill] = useState(0)
+  const [totalBill, setTotalBill] = useState(0);
 
   useEffect(() => {
     console.log("products", products);
-    const bill = products.reduce((acc,p)=> acc + (p.quantity * p.price),0)
-    setTotalBill(bill)
+    const bill = products.reduce((acc, p) => acc + p.quantity * p.price, 0);
+    setTotalBill(bill);
   }, [products]);
 
   useEffect(() => {
@@ -59,20 +61,17 @@ export const CartProvider = ({ children }) => {
     setProducts(newProduct);
   };
 
-  const decreaseQuantity = (name,size) => {
+  const decreaseQuantity = (name, size) => {
     const newProduct = [...products];
     const productIndex = newProduct.findIndex(
       (product) => product.name === name && product.size === size
     );
-    if(newProduct[productIndex].quantity ===1){
-      removeProduct(name,size)
-    }
-    else{
+    if (newProduct[productIndex].quantity === 1) {
+      removeProduct(name, size);
+    } else {
       newProduct[productIndex].quantity -= 1;
       setProducts(newProduct);
-
     }
-
   };
 
   const value = {
@@ -82,7 +81,7 @@ export const CartProvider = ({ children }) => {
     removeProduct,
     increaseQuantity,
     decreaseQuantity,
-    totalBill
+    totalBill,
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
