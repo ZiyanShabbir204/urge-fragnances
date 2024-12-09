@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import image1 from "../../assets/images/home/image1.jpg";
+import image1 from "../../assets/images/home/waxhomepage.png";
+import image2 from "../../assets/images/home/perfumehomepage.png";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -21,7 +22,7 @@ const Hero = () => {
 
       {/* Perfumes */}
       <Link
-        style={{ backgroundImage: `url(${image1})` }}
+        style={{ backgroundImage: `url(${image2})` }}
         to="/perfume"
         className="bg-cover bg-center bg-no-repeat transition-all duration-500 flex items-center justify-center group hover:scale-105 hover:z-10 cursor-pointer"
       >

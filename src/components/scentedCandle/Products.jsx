@@ -9,8 +9,6 @@ const Products = ({products}) => {
     <div className='p-6 bg-white-100'>
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6'>
             {products.map((value,indx)=> <ProductCard key={indx} image={value.image} price={value.price} name={value.name}/>)}
-            {products.map((value,indx)=> <ProductCard key={indx} image={value.image} price={value.price} name={value.name}/>)}
-
         </div>
 
     </div>

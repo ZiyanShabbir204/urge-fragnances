@@ -2,14 +2,20 @@ import React, { useEffect, useState } from "react";
 import gsap from "gsap";
 import "./navbar.css"
 import Cart from "../cart/Cart";
+import { useCart } from "../../context/cart.context";
+import { CiShoppingCart } from "react-icons/ci";
+import logo from "../../assets/images/navbar/urge logo-01.png"
+
 
 const Navbar = () => {
   const [activeItem, setActiveItem] = useState(null);
-  const [display,setDisplay] = useState("hidden")
+  const [display, setDisplay] = useState("hidden")
 
-  const cartHandler = ()=>{
-      setDisplay("block")
-    }
+  const { products } = useCart();
+
+  const cartHandler = () => {
+    setDisplay("block")
+  }
 
   useEffect(() => {
     const scentDiv = document.querySelector(".scent-div");
@@ -18,7 +24,7 @@ const Navbar = () => {
     const listItem1 = document.getElementById("li-1");
     const listItem2 = document.getElementById("li-2");
     const listItem3 = document.getElementById("li-3");
-    
+
 
     const showDiv = (div, itemId) => {
       gsap.to(div, {
@@ -78,10 +84,14 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="relative z-10 px-10 py-5 flex gap-40 items-center">
-        <div className="logo text-4xl font-bold">Urge Fragnances</div>
+      <div className="relative z-10 px-10 py-2 flex gap-40 items-center">
+        <div className="overflow-hidden flex justify-center items-center">
+          <img className="w-20" src={logo} alt="" srcset="" />
+          <p className="text-xl font-bold">Urge Fragnances</p>
+        </div>
+        {/* <div className="logo text-4xl font-bold">Urge Fragnances</div> */}
         <div className="list">
-          <ul className="text-3xl flex gap-10">
+          <ul className="text-2xl flex gap-10">
             <li
               className={`cursor-pointer relative group ${activeItem === "li-1" ? "active" : ""
                 }`}
@@ -107,21 +117,26 @@ const Navbar = () => {
               <span className="absolute bottom-[-10px] left-0 w-0 h-[5px] bg-black transition-all duration-300 ease-in-out group-hover:w-full"></span>
             </li>
 
-            <li
-              className={`cursor-pointer relative group ${activeItem === "li-3" ? "active" : ""
-                }`}
-              id="li-3"
-              onClick={cartHandler}
-            >
-              Cart
-              <span className="absolute bottom-[-10px] left-0 w-0 h-[5px] bg-black transition-all duration-300 ease-in-out group-hover:w-full"></span>
+            {/* cart option */}
+            <li className="absolute right-20 cursor-pointer"
+              onClick={cartHandler}>
+              <div className="indicator">
+                <span className="indicator-item badge bg-orange-900 text-white">{products.length}</span>
+                <div className="text-4xl"><CiShoppingCart />
+                </div>
+              </div>
             </li>
           </ul>
         </div>
+        {/* <div className="indicator absolute right-0">
+                <span className="indicator-item badge bg-orange-900 text-white">{products.length}</span>
+                <CiShoppingCart />
+              </div> */}
       </div>
-      <Cart display={display} setDisplay={setDisplay}/>
-      <div className="p-10 absolute z-20 top-[4rem] w-0 hidden scent-div bg-white">
-        <ul className="text-2xl flex gap-10 items-center">
+      <Cart display={display} setDisplay={setDisplay} />
+
+      <div className="p-10 absolute z-20 top-[5rem] w-0 hidden scent-div bg-white">
+        <ul className="text-xl flex gap-10 items-center pl-28">
           <li className="cursor-pointer">
             link 1 of Scents
           </li>
@@ -129,8 +144,8 @@ const Navbar = () => {
           <li className="cursor-pointer">link 3</li>
         </ul>
       </div>
-      <div className="p-10 absolute z-20 top-[4rem] w-0 hidden candle-div bg-white">
-        <ul className="text-2xl flex gap-10 items-center">
+      <div className="p-10 absolute z-20 top-[5rem] w-0 hidden candle-div bg-white">
+        <ul className="text-xl flex gap-10 items-center pl-28">
           <li className="cursor-pointer">
             link 1 of Candle
           </li>
@@ -138,8 +153,8 @@ const Navbar = () => {
           <li className="cursor-pointer">link 3</li>
         </ul>
       </div>
-      <div className="p-10 absolute z-20 top-[4rem] w-0 hidden fragnance-div bg-white">
-        <ul className="text-2xl flex gap-10 items-center">
+      <div className="p-10 absolute z-20 top-[5rem] w-0 hidden fragnance-div bg-white">
+        <ul className="text-xl flex gap-10 items-center pl-28">
           <li className="cursor-pointer">
             link 1 of Fragnances
           </li>

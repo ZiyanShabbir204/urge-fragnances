@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Logo from "../../assets/images/checkout/Logo.png"
 //Todo
 // local storage work
 

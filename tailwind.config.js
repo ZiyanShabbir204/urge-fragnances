@@ -43,6 +43,6 @@ export default {
       body: ['"Figtree"', "sans-serif"],
     },
   },
-  plugins: [],
+  plugins: [ require('daisyui'),],
 };
 
