@@ -15,9 +15,9 @@ function App() {
     <Navbar></Navbar>
     <Routes>
       <Route exact path="/" element={<Home></Home>}></Route>
-      <Route exact path="/scentedCandle" element={<ScentedCandle></ScentedCandle>}></Route>
-      <Route exact path="/perfume" element={<PerfumePage></PerfumePage>}></Route>
-      <Route exact path="/productpage" element={<ProductPage></ProductPage>}></Route>
+      <Route exact path="/:scentedCandle" element={<ScentedCandle></ScentedCandle>}></Route>
+      <Route exact path="/:perfume" element={<PerfumePage></PerfumePage>}></Route>
+      <Route exact path="/productpage/:type/:name" element={<ProductPage></ProductPage>}></Route>
       <Route exact path="/checkout" element={<Checkout></Checkout>}></Route>
     </Routes>
     <Footer></Footer>

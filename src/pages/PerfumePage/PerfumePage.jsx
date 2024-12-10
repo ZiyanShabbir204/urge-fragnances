@@ -11,6 +11,7 @@ import Ocean from "../../assets/images/scentedcandles/ocean.png"
 import Oud from "../../assets/images/scentedcandles/oud.png"
 import Thandi from "../../assets/images/scentedcandles/thandi.png"
 import Card from "../../components/perfume/Card";
+import { useParams } from "react-router-dom";
 
 const PerfumePage = () => {
     const obj = {
@@ -58,6 +59,8 @@ const PerfumePage = () => {
         image: Oud
     },]
 
+  const { perfume } = useParams();
+
     return (
         <>
             <ScentedHero
@@ -82,7 +85,8 @@ const PerfumePage = () => {
             </div>
 
             <Products
-                products={products}
+                product={products}
+                type={perfume}
             />
         </>
     );

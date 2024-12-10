@@ -4,8 +4,29 @@ import img2 from "../../assets/images/productpage/161a738b0be7db16053c9cd407048a
 import ProductDetailsTabs from "./ProductDetailsTabs";
 import { titleCase } from "../../utilis/TitleCase";
 import { useCart } from "../../context/cart.context";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 const Product = () => {
-    const {updateCart} = useCart()
+  const { updateCart } = useCart()
+  const { name, type } = useParams();
+  const [product, setProduct] = useState(null);
+
+
+  const fetchProductData = async () => {
+    const response = [];
+    if (type == "scentedCandle") {
+      response = await axios.get(`${process.env.HOSTURL}/api/scented-candles/${name}`);
+      setProduct(response.data)
+    }
+    else if (type == "perfume") {
+      response = await axios.get(`${process.env.HOSTURL}/api/perfumes/${name}`);
+      setProduct(response.data)
+    }
+  }
+  useEffect(() => {
+    fetchProductData();
+  }, [name, type]);
+
   const productData = {
     name: "Lavender - Large Scented Candle",
     description: "A premium lavender-scented candle for a calming atmosphere.",
@@ -37,8 +58,8 @@ const Product = () => {
   // const handleScentThrowChange = (e) => setScentThrow(e.target.value);
   const handleImageClick = (imageUrl) => setMainImage(imageUrl);
   const cartHandler = () => {
-    updateCart(productData.productImage,price,productData.name,size,qty)
-   
+    updateCart(productData.productImage, price, productData.name, size, qty)
+
   };
 
   const incrementQty = () => setQty(qty + 1);
