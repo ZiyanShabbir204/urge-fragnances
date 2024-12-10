@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ProductDetailsTabs = () => {
+const ProductDetailsTabs = ({productDescription}) => {
   const [activeTab, setActiveTab] = useState('productInfo');
 
   const tabs = [
@@ -15,9 +15,7 @@ const ProductDetailsTabs = () => {
       case 'productInfo':
         return (
           <p>
-            Our Large Candles are housed in an elegant glass container, with our signature label and a wooden lid. Perfect for extended moments of tranquility and indulgence.
-            <br />
-            Approximate burning time of 50 hours.
+            {productDescription}
           </p>
         );
       case 'howToUse':

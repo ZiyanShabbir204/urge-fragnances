@@ -102,7 +102,7 @@ const PerfumePage = () => {
 
             <Products
                 product={fetchProduct}
-                type={"perfume"}
+                type="perfume"
             />
         </>
     );
