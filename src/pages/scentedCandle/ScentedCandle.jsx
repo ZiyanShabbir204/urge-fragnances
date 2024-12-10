@@ -28,7 +28,7 @@ const ScentedCandle = () => {
   const [fetchProduct, setFetchProduct] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/scented-candles`);
+      const response = await axios.get(`${import.meta.env.VITE_HOSTURL}/scented-candles`);
       setFetchProduct(response.data);
     } catch (error) {
       console.log(error)

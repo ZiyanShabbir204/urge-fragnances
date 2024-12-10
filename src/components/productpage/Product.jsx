@@ -15,11 +15,11 @@ const Product = () => {
   const fetchProductData = async () => {
     const response = [];
     if (type == "scentedCandle") {
-      response = await axios.get(`${process.env.HOSTURL}/api/scented-candles/${name}`);
+      response = await axios.get(`${import.meta.env.VITE_HOSTURL}/api/scented-candles/${name}`);
       setProduct(response.data)
     }
     else if (type == "perfume") {
-      response = await axios.get(`${process.env.HOSTURL}/api/perfumes/${name}`);
+      response = await axios.get(`${import.meta.env.VITE_HOSTURL}/api/perfumes/${name}`);
       setProduct(response.data)
     }
   }
