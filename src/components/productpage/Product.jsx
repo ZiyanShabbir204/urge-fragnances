@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import img from "../../assets/images/productpage/bf9618331449aaefdac141b4c5fd6450.png";
 import img2 from "../../assets/images/productpage/161a738b0be7db16053c9cd407048a9a.png";
 import ProductDetailsTabs from "./ProductDetailsTabs";

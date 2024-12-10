@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ScentedHero from "../../components/scentedCandle/ScentedHero";
 import Products from "../../components/scentedCandle/Products";
 import HeroImage from "../../assets/images/perfume/heroimg.jpeg"
@@ -12,6 +12,7 @@ import Oud from "../../assets/images/scentedcandles/oud.png"
 import Thandi from "../../assets/images/scentedcandles/thandi.png"
 import Card from "../../components/perfume/Card";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const PerfumePage = () => {
     const obj = {
@@ -59,6 +60,20 @@ const PerfumePage = () => {
         image: Oud
     },]
 
+    const [fetchProduct, setFetchProduct] = useState();
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/api/perfumes`);
+      setFetchProduct(response.data);
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, [])
+
   const { perfume } = useParams();
 
     return (
@@ -85,7 +100,7 @@ const PerfumePage = () => {
             </div>
 
             <Products
-                product={products}
+                product={fetchProduct}
                 type={perfume}
             />
         </>
