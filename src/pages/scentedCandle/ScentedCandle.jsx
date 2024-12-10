@@ -34,7 +34,7 @@ const ScentedCandle = () => {
       console.log(error)
     }
   }
-  const { scentedCandle } = useParams();
+  // const { scentedCandle } = useParams();
 
   useEffect(() => {
     fetchData();
@@ -56,7 +56,7 @@ const ScentedCandle = () => {
 
       <Products
         product={fetchProduct}
-        type={scentedCandle}
+        type="scentedCandle"
       />
     </>
   );

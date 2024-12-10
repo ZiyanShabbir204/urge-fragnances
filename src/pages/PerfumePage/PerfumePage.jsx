@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ScentedHero from "../../components/scentedCandle/ScentedHero";
 import Products from "../../components/scentedCandle/Products";
 import HeroImage from "../../assets/images/perfume/heroimg.jpeg"
@@ -60,10 +60,10 @@ const PerfumePage = () => {
         image: Oud
     },]
 
-    const [fetchProduct, setFetchProduct] = useState();
+    const [fetchProduct, setFetchProduct] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/perfumes`);
+      const response = await axios.get(`${import.meta.env.VITE_HOSTURL}/perfumes`);
       setFetchProduct(response.data);
     } catch (error) {
       console.log(error)
@@ -76,6 +76,7 @@ const PerfumePage = () => {
 
   const { perfume } = useParams();
 
+  console.log("perfume products: ", fetchProduct);
     return (
         <>
             <ScentedHero
@@ -101,7 +102,7 @@ const PerfumePage = () => {
 
             <Products
                 product={fetchProduct}
-                type={perfume}
+                type={"perfume"}
             />
         </>
     );

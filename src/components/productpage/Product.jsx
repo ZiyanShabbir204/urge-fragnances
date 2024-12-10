@@ -4,13 +4,13 @@ import img2 from "../../assets/images/productpage/161a738b0be7db16053c9cd407048a
 import ProductDetailsTabs from "./ProductDetailsTabs";
 import { titleCase } from "../../utilis/TitleCase";
 import { useCart } from "../../context/cart.context";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import axios from "axios";
 const Product = () => {
   const { updateCart } = useCart()
   const { name, type } = useParams();
   const [product, setProduct] = useState(null);
-
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const fetchProductData = async () => {
     const response = [];
