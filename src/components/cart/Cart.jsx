@@ -89,7 +89,7 @@ const Cart = ({ display, setDisplay }) => {
                   </p>
                   <div class="mt-6">
                     <a
-                      href="#"
+                      href="/checkout"
                       class="flex items-center justify-center rounded-md border border-transparent bg-customLightBrown px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-customBrown"
                     >
                       Checkout
