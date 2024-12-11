@@ -74,7 +74,10 @@ const Product = () => {
   };
 
   const cartHandler = () => {
-    updateCart(product.productImage, price, product.name, size, qty);
+    console.log("products",product)
+    console.log("products image",(product.sizes[0].img1))
+
+    updateCart(product.sizes[0].img1, price, product.name, size, qty);
   };
 
   if (!product.name) return <p>Loading...</p>;
