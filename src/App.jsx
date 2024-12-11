@@ -8,11 +8,13 @@ import ScentedCandle from './pages/scentedCandle/ScentedCandle'
 import PerfumePage from './pages/PerfumePage/PerfumePage'
 import Checkout from './pages/checkout/Checkout'
 import PerfumeWax from './pages/perfume wax/PerfumeWax'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
 
   return (
     <BrowserRouter>
+    <ScrollToTop></ScrollToTop>
     <Navbar></Navbar>
     <Routes>
       <Route exact path="/" element={<Home></Home>}></Route>
