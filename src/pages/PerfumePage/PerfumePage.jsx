@@ -86,7 +86,7 @@ const PerfumePage = () => {
                 para_03={obj.para_03}
             />
 
-            <div className="flex gap-20 justify-center items-center">
+            <div className="flex flex-col md:mx-5 md:flex-row md:gap-20 justify-center items-center">
                 <Card
                     title={obj2.title}
                     description={obj2.description}

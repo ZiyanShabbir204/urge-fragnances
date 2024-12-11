@@ -32,7 +32,7 @@ const ProductDetailsTabs = ({productDescription}) => {
   return (
     <div className="mt-8 pt-4">
       {/* Tab Buttons */}
-      <div className="flex gap-4 border-b-slate-300 border-b pb-2">
+      <div className="flex md:flex-row flex-col gap-4 border-b-slate-300 border-b pb-2">
         {tabs.map((tab) => (
           <button
             key={tab.id}

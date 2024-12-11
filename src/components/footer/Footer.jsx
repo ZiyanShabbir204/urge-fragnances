@@ -5,9 +5,9 @@ const Footer = () => {
     <>
       <footer className="bg-customBeige py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className=" flex  flex-col md:flex-row gap-28 ">
+          <div className=" md:flex flex-col md:flex-row gap-28 ">
             {/* Newsletter Section */}
-            <div className="w-1/3">
+            <div className="w-full md:w-1/2">
               <h3 className=" font-bold text-customBrown text-2xl mb-4">
                 Let's Connect
               </h3>
@@ -19,7 +19,7 @@ const Footer = () => {
                 />
                 <button
                   type="submit"
-                  className="bg-customLightBrown text-white py-2 px-4 hover:bg-opacity-90 w-28"
+                  className="bg-customLightBrown text-white py-2 px-4 hover:bg-opacity-90 w-1/2 md:w-1/2"
                 >
                   Sign Up
                 </button>
@@ -57,7 +57,7 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            <div className="w-2/3 flex flex-row justify-center gap-5">
+            <div className="w-2/3 flex flex-row lg:justify-center gap-5">
               <div className="w-1/3">
                 <h3 className="text-lg font-medium text-customLightBrown mb-4">
                   Help

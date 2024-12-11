@@ -123,7 +123,7 @@ const Product = () => {
               <label className="block text-lg font-medium text-gray-600 mb-2">
                 QTY:{" " + product.sizes[0]?.quantity}
               </label>
-              <div className="qty-addcart flex gap-2">
+              <div className="qty-addcart flex sm:flex-row flex-col gap-2">
                 <div className="flex gap-4 items-center border border-black w-36 h-11 px-2 justify-between">
                   <button
                     onClick={decrementQty}
@@ -138,6 +138,7 @@ const Product = () => {
                     className="w-10 h-full flex text-center items-center justify-center text-xl"
                   />
                   <button
+                    disabled={true ? qty >= product.sizes[0].quantity : false}
                     onClick={incrementQty}
                     className="w-10 h-full flex items-center justify-center text-3xl"
                   >
@@ -218,7 +219,7 @@ const Product = () => {
               <label className="block text-lg font-medium text-gray-600 mb-2">
                 QTY:{" " + product.sizes[0]?.quantity}
               </label>
-              <div className="qty-addcart flex gap-2">
+              <div className="qty-addcart flex sm:flex-row flex-col gap-2">
                 <div className="flex gap-4 items-center border border-black w-36 h-11 px-2 justify-between">
                   <button
                     onClick={decrementQty}
@@ -299,7 +300,7 @@ const Product = () => {
               <label className="block text-lg font-medium text-gray-600 mb-2">
                 QTY:{" " + product.sizes[0]?.quantity}
               </label>
-              <div className="qty-addcart flex gap-2">
+              <div className="qty-addcart flex sm:flex-row flex-col gap-2">
                 <div className="flex gap-4 items-center border border-black w-36 h-11 px-2 justify-between">
                   <button
                     onClick={decrementQty}
@@ -314,6 +315,7 @@ const Product = () => {
                     className="w-10 h-full flex text-center items-center justify-center text-xl"
                   />
                   <button
+                    disabled={true ? qty >= product.sizes[0].quantity : false}
                     onClick={incrementQty}
                     className="w-10 h-full flex items-center justify-center text-3xl"
                   >
