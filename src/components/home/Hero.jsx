@@ -12,7 +12,7 @@ const Hero = () => {
       <Link
         style={{ backgroundImage: `url(${image1})` }}
         className="bg-cover bg-center bg-no-repeat transition-all duration-500 flex items-center justify-center group hover:scale-105 hover:z-10 cursor-pointer"
-        to="/perfumewax"
+        to="/perfumeWax"
       // onMouseEnter={()=> setScentedHover(true)}
       >
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all"></div>
