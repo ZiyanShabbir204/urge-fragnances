@@ -49,7 +49,7 @@ const PerfumeWax = () => {
   }, [])
 
 
-  console.log("perfume wax products: ", fetchProduct);
+//   console.log("perfume wax products: ", fetchProduct);
     return (
         <>
             <ScentedHero

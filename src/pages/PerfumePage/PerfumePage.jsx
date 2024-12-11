@@ -74,9 +74,8 @@ const PerfumePage = () => {
     fetchData();
   }, [])
 
-  const { perfume } = useParams();
 
-  console.log("perfume products: ", fetchProduct);
+//   console.log("perfume products: ", fetchProduct);
     return (
         <>
             <ScentedHero

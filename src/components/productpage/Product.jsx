@@ -48,7 +48,6 @@ const Product = () => {
     fetchProductData();
   }, [name, type]);
 
-  console.log(product)
   useEffect(() => {
     if (product.sizes && product.sizes.length > 0) {
       const defaultSize = product.sizes.find((s) => s.size === "medium");
@@ -195,6 +194,21 @@ const Product = () => {
             <div className="mb-5 uppercase">
               <label className="block text-lg font-medium text-gray-600 mb-1" >Type</label>
               <p>{product.type}</p>
+            </div>
+
+            <div className="mb-5 uppercase">
+              <label className="block text-lg font-medium text-gray-600 mb-1" >Base Notes</label>
+              <p>{product.sizes[0].base_notes}</p>
+            </div>
+
+            <div className="mb-5 uppercase">
+              <label className="block text-lg font-medium text-gray-600 mb-1" >Heart Notes</label>
+              <p>{product.sizes[0].heart_notes}</p>
+            </div>
+
+            <div className="mb-5 uppercase">
+              <label className="block text-lg font-medium text-gray-600 mb-1" >Top Notes</label>
+              <p>{product.sizes[0].top_notes}</p>
             </div>
 
             <div className="qty-div">

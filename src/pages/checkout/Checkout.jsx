@@ -46,7 +46,7 @@ const Checkout = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form Data:', formData);
+        // console.log('Form Data:', formData);
         alert('Order Completed! Check console for details.');
     };
 

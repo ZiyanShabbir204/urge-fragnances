@@ -11,7 +11,7 @@ export const CartProvider = ({ children }) => {
   const [totalBill, setTotalBill] = useState(0);
 
   useEffect(() => {
-    console.log("products", products);
+    // console.log("products", products);
     const bill = products.reduce((acc, p) => acc + p.quantity * p.price, 0);
     setTotalBill(bill);
   }, [products]);
@@ -56,7 +56,7 @@ export const CartProvider = ({ children }) => {
     if (productIndex > -1) {
       newProduct[productIndex].quantity += 1;
     }
-    console.log("newProducts", newProduct);
+    // console.log("newProducts", newProduct);
 
     setProducts(newProduct);
   };
