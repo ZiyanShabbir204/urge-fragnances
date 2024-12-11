@@ -11,7 +11,7 @@ const Product = () => {
   const name = searchParams.get("name");
   const type = searchParams.get("type");
   const [product, setProduct] = useState([]);
-  const [size, setSize] = useState(type == "scentedCandle" ? "medium" : "10");
+  const [size, setSize] = useState(type == "scentedCandle" ? "medium" : "10 gm");
   // const [size, setSize] = useState(
   //   type == "scentedCandle"
   //     ? "medium"
@@ -68,7 +68,9 @@ const Product = () => {
     setPrice(obj.price);
   };
 
-  const incrementQty = () => setQty(qty + 1);
+  const incrementQty = () => {
+    setQty(qty + 1)
+  };
   const decrementQty = () => {
     if (qty > 1) setQty(qty - 1);
   };
@@ -79,6 +81,7 @@ const Product = () => {
 
   if (!product.name) return <p>Loading...</p>;
 
+  // console.log(product)
   return (
     <>
       {type == "scentedCandle" &&
@@ -230,6 +233,7 @@ const Product = () => {
                     className="w-10 h-full flex text-center items-center justify-center text-xl"
                   />
                   <button
+                    disabled={true ? qty >= product.sizes[0].quantity : false}
                     onClick={incrementQty}
                     className="w-10 h-full flex items-center justify-center text-3xl"
                   >
