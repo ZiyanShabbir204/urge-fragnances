@@ -6,11 +6,13 @@ import { useCart } from "../../context/cart.context";
 import { CiShoppingCart } from "react-icons/ci";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../../assets/images/navbar/urge logo-01.png"
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [activeItem, setActiveItem] = useState(null);
   const [display, setDisplay] = useState("hidden")
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate()
 
   const { products } = useCart();
 
@@ -22,74 +24,74 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   }
 
-  useEffect(() => {
-    const scentDiv = document.querySelector(".scent-div");
-    const candleDiv = document.querySelector(".candle-div");
-    const fragnanceDiv = document.querySelector(".fragnance-div");
-    const listItem1 = document.getElementById("li-1");
-    const listItem2 = document.getElementById("li-2");
-    const listItem3 = document.getElementById("li-3");
+  // useEffect(() => {
+  //   const scentDiv = document.querySelector(".scent-div");
+  //   const candleDiv = document.querySelector(".candle-div");
+  //   const fragnanceDiv = document.querySelector(".fragnance-div");
+  //   const listItem1 = document.getElementById("li-1");
+  //   const listItem2 = document.getElementById("li-2");
+  //   const listItem3 = document.getElementById("li-3");
 
-    const showDiv = (div, itemId) => {
-      gsap.to(div, {
-        width: "100%",
-        display: "block",
-        opacity: 1,
-        duration: 0,
-      });
-      setActiveItem(itemId);
-    };
+  //   const showDiv = (div, itemId) => {
+  //     gsap.to(div, {
+  //       width: "100%",
+  //       display: "block",
+  //       opacity: 1,
+  //       duration: 0,
+  //     });
+  //     setActiveItem(itemId);
+  //   };
 
-    const hideDiv = (div, itemId) => {
-      gsap.to(div, {
-        width: "0%",
-        display: "none",
-        opacity: 0,
-        duration: 0,
-      });
-      // Only unset activeItem if it's still the current item.
-      setActiveItem((prev) => (prev === itemId ? null : prev));
-    };
+  //   const hideDiv = (div, itemId) => {
+  //     gsap.to(div, {
+  //       width: "0%",
+  //       display: "none",
+  //       opacity: 0,
+  //       duration: 0,
+  //     });
+  //     // Only unset activeItem if it's still the current item.
+  //     setActiveItem((prev) => (prev === itemId ? null : prev));
+  //   };
 
-    const addHoverEffect = (listItem, div, itemId) => {
-      const onMouseEnter = () => showDiv(div, itemId);
-      const onMouseLeave = (e) => {
-        const relatedTarget = e.relatedTarget;
-        if (!listItem.contains(relatedTarget) && !div.contains(relatedTarget)) {
-          hideDiv(div, itemId);
-        }
-      };
+  //   const addHoverEffect = (listItem, div, itemId) => {
+  //     const onMouseEnter = () => showDiv(div, itemId);
+  //     const onMouseLeave = (e) => {
+  //       const relatedTarget = e.relatedTarget;
+  //       if (!listItem.contains(relatedTarget) && !div.contains(relatedTarget)) {
+  //         hideDiv(div, itemId);
+  //       }
+  //     };
 
-      listItem.addEventListener("mouseenter", onMouseEnter);
-      listItem.addEventListener("mouseleave", onMouseLeave);
-      div.addEventListener("mouseenter", onMouseEnter);
-      div.addEventListener("mouseleave", onMouseLeave);
+  //     listItem.addEventListener("mouseenter", onMouseEnter);
+  //     listItem.addEventListener("mouseleave", onMouseLeave);
+  //     div.addEventListener("mouseenter", onMouseEnter);
+  //     div.addEventListener("mouseleave", onMouseLeave);
 
-      // Cleanup listeners
-      return () => {
-        listItem.removeEventListener("mouseenter", onMouseEnter);
-        listItem.removeEventListener("mouseleave", onMouseLeave);
-        div.removeEventListener("mouseenter", onMouseEnter);
-        div.removeEventListener("mouseleave", onMouseLeave);
-      };
-    };
+  //     // Cleanup listeners
+  //     return () => {
+  //       listItem.removeEventListener("mouseenter", onMouseEnter);
+  //       listItem.removeEventListener("mouseleave", onMouseLeave);
+  //       div.removeEventListener("mouseenter", onMouseEnter);
+  //       div.removeEventListener("mouseleave", onMouseLeave);
+  //     };
+  //   };
 
-    const cleanup1 = addHoverEffect(listItem1, scentDiv, "li-1");
-    const cleanup2 = addHoverEffect(listItem2, candleDiv, "li-2");
-    const cleanup3 = addHoverEffect(listItem3, fragnanceDiv, "li-3");
+  //   const cleanup1 = addHoverEffect(listItem1, scentDiv, "li-1");
+  //   const cleanup2 = addHoverEffect(listItem2, candleDiv, "li-2");
+  //   const cleanup3 = addHoverEffect(listItem3, fragnanceDiv, "li-3");
 
-    return () => {
-      cleanup1();
-      cleanup2();
-      cleanup3();
-    };
-  }, []);
+  //   return () => {
+  //     cleanup1();
+  //     cleanup2();
+  //     cleanup3();
+  //   };
+  // }, []);
 
   return (
     <>
       {/* Main Navbar */}
       <div className="relative z-10 px-2 sm:px-10 py-2 flex justify-between lg:justify-start md:gap-40 items-center">
-        <div className="overflow-hidden flex justify-center items-center">
+        <div className="overflow-hidden flex justify-center items-center cursor-pointer" onClick={()=> navigate("/")}>
           <img className="w-20" src={logo} alt="" srcset="" />
           <p className="text-xl font-bold">Urge Fragnances</p>
         </div>
@@ -98,25 +100,30 @@ const Navbar = () => {
         <div className="hidden lg:block">
           <div className="list">
             <ul className="text-xl flex gap-10">
+              
               <li
-                className={`cursor-pointer relative group ${activeItem === "li-1" ? "active" : ""}`}
-                id="li-1"
+                className={`cursor-pointer relative group ${activeItem === "li-3" ? "active" : ""}`}
+                id="li-3"
+                onClick={()=>navigate("/perfumeWax")}
+
               >
-                Scented Candles
+                Perfume Wax
                 <span className="absolute bottom-[-10px] left-0 w-0 h-[5px] bg-black transition-all duration-300 ease-in-out group-hover:w-full"></span>
               </li>
               <li
                 className={`cursor-pointer relative group ${activeItem === "li-2" ? "active" : ""}`}
                 id="li-2"
+                onClick={()=>navigate("/perfume")}
               >
                 Perfumes
                 <span className="absolute bottom-[-10px] left-0 w-0 h-[5px] bg-black transition-all duration-300 ease-in-out group-hover:w-full"></span>
               </li>
               <li
-                className={`cursor-pointer relative group ${activeItem === "li-3" ? "active" : ""}`}
-                id="li-3"
+                className={`cursor-pointer relative group ${activeItem === "li-1" ? "active" : ""}`}
+                onClick={()=>navigate("/scentedCandle")}
+                id="li-1"
               >
-                Perfume Wax
+                Scented Candles
                 <span className="absolute bottom-[-10px] left-0 w-0 h-[5px] bg-black transition-all duration-300 ease-in-out group-hover:w-full"></span>
               </li>
 
@@ -172,7 +179,7 @@ const Navbar = () => {
               </button>
             </div>
 
-            <nav className="p-4">
+            {/* <nav className="p-4">
               <div className="mb-4">
                 <h3 className="text-lg font-semibold mb-2">Scented Candles</h3>
                 <ul className="space-y-2">
@@ -217,7 +224,7 @@ const Navbar = () => {
                   </li>
                 </ul>
               </div>
-            </nav>
+            </nav> */}
           </div>
         </div>
       )}
@@ -225,7 +232,7 @@ const Navbar = () => {
       <Cart display={display} setDisplay={setDisplay} />
 
       {/* Existing Dropdown Divs for Desktop */}
-      <div className="px-10 py-5 absolute z-20 top-[5rem] w-0 hidden scent-div bg-white">
+      {/* <div className="px-10 py-5 absolute z-20 top-[5rem] w-0 hidden scent-div bg-white">
         <ul className="text-xl flex gap-10 items-center pl-28">
           <li className="cursor-pointer">Men</li>
           <li className="cursor-pointer">link 2</li>
@@ -245,7 +252,7 @@ const Navbar = () => {
           <li className="cursor-pointer">link 2</li>
           <li className="cursor-pointer">link 3</li>
         </ul>
-      </div>
+      </div> */}
     </>
   );
 };

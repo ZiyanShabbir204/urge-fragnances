@@ -20,7 +20,7 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(products));
   }, [products]);
 
-  const updateCart = (productImage, price, name, size, quantity) => {
+  const updateCart = (productImage, price, name, size, quantity,maxQuantity) => {
     const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
     const productIndex = currentCart.findIndex(
       (product) => product.name === name && product.size === size
@@ -37,6 +37,7 @@ export const CartProvider = ({ children }) => {
         price,
         productImage: productImage,
         quantity: quantity,
+        maxQuantity
       });
     }
     // localStorage.setItem("cart", JSON.stringify(currentCart));
@@ -53,7 +54,7 @@ export const CartProvider = ({ children }) => {
     const productIndex = newProduct.findIndex(
       (product) => product.name === name && product.size === size
     );
-    if (productIndex > -1) {
+    if (productIndex > -1 && newProduct[productIndex].quantity < newProduct[productIndex].maxQuantity ) {
       newProduct[productIndex].quantity += 1;
     }
     // console.log("newProducts", newProduct);

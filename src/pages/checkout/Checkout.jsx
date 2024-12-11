@@ -211,7 +211,7 @@ const Checkout = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className="mt-6 w-full bg-yellow-500 text-white py-3 rounded-lg hover:bg-yellow-600 transition"
+          className="mt-6 w-full  text-white py-3 rounded-lg bg-customLightBrown  hover:bg-customBrown transition"
         >
           COMPLETE ORDER
         </button>

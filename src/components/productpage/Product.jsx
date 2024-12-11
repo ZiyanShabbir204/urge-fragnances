@@ -12,6 +12,7 @@ const Product = () => {
   const type = searchParams.get("type");
   const [product, setProduct] = useState([]);
   const [size, setSize] = useState(type == "scentedCandle" ? "medium" : "10 gm");
+  const [maxQuantity,setMaxQuantity] = useState(0)
   // const [size, setSize] = useState(
   //   type == "scentedCandle"
   //     ? "medium"
@@ -54,10 +55,14 @@ const Product = () => {
       if (defaultSize) {
         setSize(defaultSize.size);
         setPrice(defaultSize.price);
+        setMaxQuantity(defaultSize.quantity)
       } else {
         // Fallback to the first size if "medium" is not available
         setSize(product.sizes[0].size);
         setPrice(product.sizes[0].price);
+        setMaxQuantity(product.sizes[0].quantity)
+
+
       }
     }
   }, [product]);
@@ -79,7 +84,7 @@ const Product = () => {
     console.log("products",product)
     console.log("products image",(product.sizes[0].img1))
 
-    updateCart(product.sizes[0].img1, price, product.name, size, qty);
+    updateCart(product.sizes[0].img1, price, product.name, size, qty,maxQuantity);
   };
 
   if (!product.name) return <p>Loading...</p>;
@@ -141,7 +146,7 @@ const Product = () => {
                     className="w-10 h-full flex text-center items-center justify-center text-xl"
                   />
                   <button
-                    disabled={true ? qty >= product.sizes[0].quantity : false}
+                    disabled={true ? qty >= maxQuantity: false}
                     onClick={incrementQty}
                     className="w-10 h-full flex items-center justify-center text-3xl"
                   >
