@@ -1,6 +1,11 @@
 import React from 'react'
 import img from "../../assets/images/productpage/image1.png"
-import img2 from "../../assets/images/productpage/161a738b0be7db16053c9cd407048a9a.png"
+// import img2 from "../../assets/images/productpage/161a738b0be7db16053c9cd407048a9a.png"
+
+import img1 from "../../assets/images/scentedcandles/1.jpg"
+import img2 from "../../assets/images/scentedcandles/2.jpg"
+import img3 from "../../assets/images/scentedcandles/3.jpg"
+import img4 from "../../assets/images/scentedcandles/4.jpg"
 const CandleCare = () => {
     return (
         <div className='p-10 flex justify-between items-center gap-5 lg:gap-2 candle-care h-full'>
@@ -8,10 +13,10 @@ const CandleCare = () => {
             {/* images */}
             <div className='hidden sm:block images sm:w-2/5'>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 overflow-hidden'>
-                    <img className='w-60 lg:w-full' src={img} alt="" />
+                    <img className='w-60 lg:w-full' src={img1} alt="" />
                     <img className='w-60 lg:w-full' src={img2} alt="" />
-                    <img className='w-60 lg:w-full' src={img2} alt="" />
-                    <img className='w-60 lg:w-full' src={img} alt="" />
+                    <img className='w-60 lg:w-full' src={img3} alt="" />
+                    <img className='w-60 lg:w-full' src={img4} alt="" />
                 </div>
 
             </div>

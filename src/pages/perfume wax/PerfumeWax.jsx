@@ -2,16 +2,6 @@ import React, { useEffect, useState } from "react";
 import ScentedHero from "../../components/scentedCandle/ScentedHero";
 import Products from "../../components/scentedCandle/Products";
 import HeroImage from "../../assets/images/perfumewax/hero-img.png"
-import CardImg from "../../assets/images/perfume/heroimg.jpeg"
-
-//These images are temporary stored like this otherwise they will be in db and after hitting on api the imgs automatically will be stores in the products object
-import Lavendar from "../../assets/images/scentedcandles/lavendar.png"
-import Mulbery from "../../assets/images/scentedcandles/mulbery.png"
-import Ocean from "../../assets/images/scentedcandles/ocean.png"
-import Oud from "../../assets/images/scentedcandles/oud.png"
-import Thandi from "../../assets/images/scentedcandles/thandi.png"
-import Card from "../../components/perfume/Card";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const PerfumeWax = () => {

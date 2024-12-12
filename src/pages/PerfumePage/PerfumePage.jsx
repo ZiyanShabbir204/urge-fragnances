@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import ScentedHero from "../../components/scentedCandle/ScentedHero";
 import Products from "../../components/scentedCandle/Products";
 import HeroImage from "../../assets/images/perfume/hero-img.png"
-import CardImg from "../../assets/images/perfume/heroimg.jpeg"
 import Card from "../../components/perfume/Card";
+import men from "../../assets/images/perfume/men.jpg";
+import all from "../../assets/images/perfume/all.png";
+import unisex from "../../assets/images/perfume/unisex.jpg";
 import axios from "axios";
 
 const PerfumePage = () => {
@@ -20,19 +22,15 @@ const PerfumePage = () => {
   const obj2 = {
     title: "Unisex Perfumes",
     description: "Explore a wide range of fragrances suitable for everyone.",
-    imageUrl: CardImg,
+    imageUrl: unisex,
     title_02: "Men Perfumes",
     description_02: "Explore a wide range of Men fragnances suitable for Men.",
-    imageUrl_02: CardImg,
+    imageUrl_02: men,
+    title_03 :"All Perfumes",
+    description_03: "Explore a wide range of fragrances suitable for everyone.",
+    imageUrl_03: all,
   };
-  const obj3 = {
-    title: "All Perfumes",
-    description: "Explore a wide range of fragrances suitable for everyone.",
-    imageUrl: CardImg,
-    title_02: "All Perfumes",
-    description_02: "Explore a wide range of fragnances.",
-    imageUrl_02: CardImg,
-  };
+ 
 
     const [fetchProduct, setFetchProduct] = useState([]);
     const fetchData = async () => {
@@ -61,9 +59,9 @@ const PerfumePage = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-0  place-items-center ">
         <Card
-          title={obj3.title_02}
-          description={obj3.description_02}
-          imageUrl={obj3.imageUrl_02}
+          title={obj2.title_03}
+          description={obj2.description_03}
+          imageUrl={obj2.imageUrl_03}
           gender=""
           setGender={setGender}
         />
