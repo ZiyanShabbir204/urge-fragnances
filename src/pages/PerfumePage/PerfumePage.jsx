@@ -1,29 +1,20 @@
 import React, { useEffect, useState } from "react";
 import ScentedHero from "../../components/scentedCandle/ScentedHero";
 import Products from "../../components/scentedCandle/Products";
-import HeroImage from "../../assets/images/perfume/heroimg.jpeg";
-import CardImg from "../../assets/images/perfume/heroimg.jpeg";
-
-//These images are temporary stored like this otherwise they will be in db and after hitting on api the imgs automatically will be stores in the products object
-import Lavendar from "../../assets/images/scentedcandles/lavendar.png";
-import Mulbery from "../../assets/images/scentedcandles/mulbery.png";
-import Ocean from "../../assets/images/scentedcandles/ocean.png";
-import Oud from "../../assets/images/scentedcandles/oud.png";
-import Thandi from "../../assets/images/scentedcandles/thandi.png";
+import HeroImage from "../../assets/images/perfume/hero-img.png"
+import CardImg from "../../assets/images/perfume/heroimg.jpeg"
 import Card from "../../components/perfume/Card";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const PerfumePage = () => {
-    const [gender,setGender] = useState("")
-  const obj = {
-    HeroImage: HeroImage,
-    heading_01: "scented Perfumes",
-    para_01:
-      "Perfect for creating a luxurious ambiance, our premium scented candles elevate your space with their exquisite fragrance.",
-    para_02: "operating since 2023",
-    para_03: "Our In house fresh, fruity fragnances",
-  };
+    const obj = {
+        HeroImage: HeroImage,
+        heading_01: "Scented Perfume",
+        para_01: "Elevate your senses with our Scented Perfumes, expertly crafted to leave a lasting impression with their alluring and sophisticated fragrances.",
+        para_02: "Redefining elegance and charm since 2023.",
+        para_03: "Discover our exclusive collection of vibrant, floral, and musky notes designed for every personality and occasion."
+    };
+    
 
   const obj2 = {
     title: "Unisex Perfumes",
@@ -42,51 +33,19 @@ const PerfumePage = () => {
     imageUrl_02: CardImg,
   };
 
-  //here instead of this the api will hit from Perfume database
-  //a useEffect will run which will brings all relevent data
-  const products = [
-    {
-      name: "Lavender Scented ",
-      price: 2700.0,
-      image: Lavendar,
-    },
-    {
-      name: "Thandi Shaam",
-      price: 2700.0,
-      image: Thandi,
-    },
-    {
-      name: "Ocean",
-      price: 3400.0,
-      image: Ocean,
-    },
-    {
-      name: "Mulberry",
-      price: 3600.0,
-      image: Mulbery,
-    },
-    {
-      name: "Oud",
-      price: 3500.0,
-      image: Oud,
-    },
-  ];
-
-  const [fetchProduct, setFetchProduct] = useState([]);
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(
-        `${import.meta.env.VITE_HOSTURL}/perfumes?gender=${gender}`
-      );
-      setFetchProduct(response.data);
-    } catch (error) {
-      console.log(error);
+    const [fetchProduct, setFetchProduct] = useState([]);
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`${import.meta.env.VITE_HOSTURL}/perfumes`);
+            setFetchProduct(response.data);
+        } catch (error) {
+            console.log(error)
+        }
     }
-  };
 
-  useEffect(() => {
-    fetchData();
-  }, [gender]);
+    useEffect(() => {
+        fetchData();
+    }, [])
 
   //   console.log("perfume products: ", fetchProduct);
   return (

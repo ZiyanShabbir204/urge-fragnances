@@ -12,7 +12,7 @@ const Product = () => {
   const type = searchParams.get("type");
   const [product, setProduct] = useState([]);
   const [size, setSize] = useState(type == "scentedCandle" ? "medium" : "10 gm");
-  const [maxQuantity,setMaxQuantity] = useState(0)
+  const [maxQuantity, setMaxQuantity] = useState(0)
   // const [size, setSize] = useState(
   //   type == "scentedCandle"
   //     ? "medium"
@@ -81,14 +81,13 @@ const Product = () => {
   };
 
   const cartHandler = () => {
-    console.log("products",product)
-    console.log("products image",(product.sizes[0].img1))
+    console.log("products", product)
+    console.log("products image", (product.sizes[0].img1))
 
-    updateCart(product.sizes[0].img1, price, product.name, size, qty,maxQuantity);
+    updateCart(product.sizes[0].img1, price, product.name, size, qty, maxQuantity);
   };
 
   if (!product.name) return <p>Loading...</p>;
-
   // console.log(product)
   return (
     <>
@@ -98,7 +97,7 @@ const Product = () => {
             <img
               src={size == "medium" ? product.sizes[0].img1 : product.sizes[1].img1}
               alt={product.name}
-              className="w-full h-auto object-cover shadow-lg"
+              className={`w-full h-auto object-cover shadow-lg`}
             />
           </div>
           <div className="flex-1">
@@ -146,7 +145,7 @@ const Product = () => {
                     className="w-10 h-full flex text-center items-center justify-center text-xl"
                   />
                   <button
-                    disabled={true ? qty >= maxQuantity: false}
+                    disabled={true ? qty >= maxQuantity : false}
                     onClick={incrementQty}
                     className="w-10 h-full flex items-center justify-center text-3xl"
                   >
