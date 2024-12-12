@@ -8,7 +8,7 @@ const ScentedHero = ({HeroImage,heading_01, para_01, para_02, para_03}) => {
         <img
           src={HeroImage}
           alt="Scented Candles"
-          class="w-full h-auto rounded-r-2xl "
+          class="w-full h-auto"
         />
       </div>
 

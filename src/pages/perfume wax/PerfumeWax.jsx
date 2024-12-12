@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ScentedHero from "../../components/scentedCandle/ScentedHero";
 import Products from "../../components/scentedCandle/Products";
-import HeroImage from "../../assets/images/perfume/heroimg.jpeg"
+import HeroImage from "../../assets/images/perfumewax/hero-img.png"
 import CardImg from "../../assets/images/perfume/heroimg.jpeg"
 
 //These images are temporary stored like this otherwise they will be in db and after hitting on api the imgs automatically will be stores in the products object
@@ -17,39 +17,28 @@ import axios from "axios";
 const PerfumeWax = () => {
     const obj = {
         HeroImage: HeroImage,
-        heading_01: "scented Perfumes",
-        para_01: "Perfect for creating a luxurious ambiance, our premium scented candles elevate your space with their exquisite fragrance.",
-        para_02: "operating since 2023",
-        para_03: "Our In house fresh, fruity fragnances"
-    }
-
-    const obj2 = {
-        title: "Unisex Perfumes",
-        description: "Explore a wide range of fragrances suitable for everyone.",
-        imageUrl: CardImg,
-        title_02: "Men Perfumes",
-        description_02: "Explore a wide range of Men fragnances suitable for Men.",
-        imageUrl_02: CardImg,
-    }
-
-    //here instead of this the api will hit from Perfume database
-    //a useEffect will run which will brings all relevent data
+        heading_01: "Perfume Wax",
+        para_01: "Transform your space with our luxurious Perfume Wax, designed to infuse your surroundings with long-lasting and exquisite fragrances.",
+        para_02: "Creating memorable scents since 2023.",
+        para_03: "Our in-house crafted waxes feature fresh, fruity, and captivating fragrances to suit every mood and occasion."
+    };
+    
     const [fetchProduct, setFetchProduct] = useState([]);
-  const fetchData = async () => {
-    try {
-      const response = await axios.get(`${import.meta.env.VITE_HOSTURL}/perfume-wax`);
-      setFetchProduct(response.data);
-    } catch (error) {
-      console.log(error)
+    const fetchData = async () => {
+        try {
+            const response = await axios.get(`${import.meta.env.VITE_HOSTURL}/perfume-wax`);
+            setFetchProduct(response.data);
+        } catch (error) {
+            console.log(error)
+        }
     }
-  }
 
-  useEffect(() => {
-    fetchData();
-  }, [])
+    useEffect(() => {
+        fetchData();
+    }, [])
 
 
-//   console.log("perfume wax products: ", fetchProduct);
+    //   console.log("perfume wax products: ", fetchProduct);
     return (
         <>
             <ScentedHero
