@@ -7,7 +7,8 @@ import Card from "../../components/perfume/Card";
 import axios from "axios";
 
 const PerfumePage = () => {
-    const obj = {
+    const [gender, setGender ] = useState("")
+     const obj = {
         HeroImage: HeroImage,
         heading_01: "Scented Perfume",
         para_01: "Elevate your senses with our Scented Perfumes, expertly crafted to leave a lasting impression with their alluring and sophisticated fragrances.",
@@ -36,7 +37,7 @@ const PerfumePage = () => {
     const [fetchProduct, setFetchProduct] = useState([]);
     const fetchData = async () => {
         try {
-            const response = await axios.get(`${import.meta.env.VITE_HOSTURL}/perfumes`);
+            const response = await axios.get(`${import.meta.env.VITE_HOSTURL}/perfumes?gender=${gender}`);
             setFetchProduct(response.data);
         } catch (error) {
             console.log(error)
@@ -45,7 +46,7 @@ const PerfumePage = () => {
 
     useEffect(() => {
         fetchData();
-    }, [])
+    }, [gender])
 
   //   console.log("perfume products: ", fetchProduct);
   return (
