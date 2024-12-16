@@ -3,6 +3,7 @@ import ProductDetailsTabs from "./ProductDetailsTabs";
 import { titleCase } from "../../utilis/TitleCase";
 import { useCart } from "../../context/cart.context";
 import { useParams, useSearchParams } from "react-router-dom";
+import { FaLock } from "react-icons/fa";
 import axios from "axios";
 
 const Product = () => {
@@ -81,8 +82,8 @@ const Product = () => {
   };
 
   const cartHandler = () => {
-    console.log("products", product)
-    console.log("products image", (product.sizes[0].img1))
+    // console.log("products", product)
+    // console.log("products image", (product.sizes[0].img1))
 
     updateCart(product.sizes[0].img1, price, product.name, size, qty, maxQuantity);
   };
@@ -128,8 +129,9 @@ const Product = () => {
 
             <div className="qty-div">
               <label className="block text-lg font-medium text-gray-600 mb-2">
-                QTY:{" " + product.sizes[0]?.quantity}
+                QTY:{" " + maxQuantity}
               </label>
+
               <div className="qty-addcart flex sm:flex-row flex-col gap-2">
                 <div className="flex gap-4 items-center border border-black w-36 h-11 px-2 justify-between">
                   <button
@@ -145,7 +147,7 @@ const Product = () => {
                     className="w-10 h-full flex text-center items-center justify-center text-xl"
                   />
                   <button
-                    disabled={true ? qty >= maxQuantity : false}
+                    disabled={true ? qty >= maxQuantity + 1 : false}
                     onClick={incrementQty}
                     className="w-10 h-full flex items-center justify-center text-3xl"
                   >
@@ -154,13 +156,16 @@ const Product = () => {
                 </div>
                 <div className="flex gap-4  ">
                   <button
-                    className="uppercase border border-black px-6 py-2  bg-amber-950 text-white hover:bg-amber-700 w-64"
+                    disabled={true ? qty >= maxQuantity + 1 : false}
+                    className="text-center uppercase border border-black px-6 py-2  bg-amber-950 text-white hover:bg-amber-700 w-64"
                     onClick={cartHandler}
                   >
-                    Add to Cart
+                    {qty >= maxQuantity + 1 ? <div className="flex justify-center items-center text-xl"> <FaLock /></div> : "Add to Cart"}
                   </button>
                 </div>
               </div>
+              {qty >= maxQuantity + 1 ? <h2 className="font-bold">Out of Stock</h2> : ""}
+              {maxQuantity <= 0 ? <h2 className="font-bold">Out of Stock</h2> : ""}
             </div>
 
             <p className="text-lg text-gray-600 mb-4 mt-6">{product.intro}</p>
@@ -224,7 +229,7 @@ const Product = () => {
 
             <div className="qty-div">
               <label className="block text-lg font-medium text-gray-600 mb-2">
-                QTY:{" " + product.sizes[0]?.quantity}
+                QTY:{" " + maxQuantity}
               </label>
               <div className="qty-addcart flex sm:flex-row flex-col gap-2">
                 <div className="flex gap-4 items-center border border-black w-36 h-11 px-2 justify-between">
@@ -241,7 +246,7 @@ const Product = () => {
                     className="w-10 h-full flex text-center items-center justify-center text-xl"
                   />
                   <button
-                    disabled={true ? qty >= product.sizes[0].quantity : false}
+                    disabled={true ? qty >= maxQuantity + 1 : false}
                     onClick={incrementQty}
                     className="w-10 h-full flex items-center justify-center text-3xl"
                   >
@@ -250,13 +255,16 @@ const Product = () => {
                 </div>
                 <div className="flex gap-4  ">
                   <button
+                    disabled={true ? qty >= maxQuantity + 1 : false}
                     className="uppercase border border-black px-6 py-2  bg-amber-950 text-white hover:bg-amber-700 w-64"
                     onClick={cartHandler}
                   >
-                    Add to Cart
+                    {qty >= maxQuantity + 1 ? <div className="flex justify-center items-center text-xl"> <FaLock /></div> : "Add to Cart"}
                   </button>
                 </div>
               </div>
+              {qty >= maxQuantity + 1 ? <h2 className="font-bold">Out of Stock</h2> : ""}
+              {maxQuantity <= 0 ? <h2 className="font-bold">Out of Stock</h2> : ""}
             </div>
 
             <p className="text-lg text-gray-600 mb-4 mt-6">{product.description}</p>
@@ -305,7 +313,7 @@ const Product = () => {
 
             <div className="qty-div">
               <label className="block text-lg font-medium text-gray-600 mb-2">
-                QTY:{" " + product.sizes[0]?.quantity}
+                QTY:{" " + maxQuantity}
               </label>
               <div className="qty-addcart flex sm:flex-row flex-col gap-2">
                 <div className="flex gap-4 items-center border border-black w-36 h-11 px-2 justify-between">
@@ -322,7 +330,7 @@ const Product = () => {
                     className="w-10 h-full flex text-center items-center justify-center text-xl"
                   />
                   <button
-                    disabled={true ? qty >= product.sizes[0].quantity : false}
+                    disabled={true ? qty >= maxQuantity+1 : false}
                     onClick={incrementQty}
                     className="w-10 h-full flex items-center justify-center text-3xl"
                   >
@@ -331,13 +339,16 @@ const Product = () => {
                 </div>
                 <div className="flex gap-4  ">
                   <button
+                    disabled={true ? qty >= maxQuantity+1 : false}
                     className="uppercase border border-black px-6 py-2  bg-amber-950 text-white hover:bg-amber-700 w-64"
                     onClick={cartHandler}
                   >
-                    Add to Cart
+                    {qty >= maxQuantity + 1 ? <div className="flex justify-center items-center text-xl"> <FaLock /></div> : "Add to Cart"}
                   </button>
                 </div>
               </div>
+              {qty >= maxQuantity + 1 ? <h2 className="font-bold">Out of Stock</h2> : ""}
+              {maxQuantity <= 0 ? <h2 className="font-bold">Out of Stock</h2> : ""}
             </div>
 
             <p className="text-lg text-gray-600 mb-4 mt-6">{product.description}</p>
