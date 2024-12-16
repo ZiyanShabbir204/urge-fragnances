@@ -1,21 +1,46 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import image1 from "../../assets/images/home/waxhomepage.png";
 import image2 from "../../assets/images/home/perfumehomepage.png";
 import image3 from "../../assets/images/home/candlehomepage.jpg";
 
 import perfume from "../../assets/images/home/perfume.jpg"
+import perfumeMobile from "../../assets/images/home/perfumehomepage.png"
 import wax from "../../assets/images/home/wax.jpg"
+import waxMobile from "../../assets/images/home/waxhomepage.png"
 import candle from "../../assets/images/home/candle.jpg"
+import candleMobile from "../../assets/images/home/candlehomepage.png"
 import { Link } from "react-router-dom";
 
 const Hero = () => {
+  const [candleImg, setCandleImg] = useState(candle);
+  const [perfumeImg, setPerfumeImg] = useState(perfume);
+  const [perfumeWaxImg, setPerfumeWaxImg] = useState(wax);
+  useEffect(() => {
+    // Check screen width and update background image
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setCandleImg(candleMobile);
+        setPerfumeImg(perfumeMobile);
+        setPerfumeWaxImg(waxMobile);
+      } else {
+        setCandleImg(candle);
+        setPerfumeImg(perfume);
+        setPerfumeImg(wax);
+      }
+    };
+
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize); // Update on resize
+
+    return () => window.removeEventListener("resize", handleResize); // Cleanup
+  }, []);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 h-screen overflow-hidden">
       {/* Scented Candles */}
       <Link
-        style={{ backgroundImage: `url(${candle})` }}
-        className="bg-cover bg-center bg-no-repeat transition-all duration-500 flex items-center justify-center group hover:scale-105 hover:z-10 cursor-pointer"
+        style={{ backgroundImage: `url(${candleImg})` }}
+        className={`bg-cover bg-center bg-no-repeat transition-all duration-500 flex items-center justify-center group hover:scale-105 hover:z-10 cursor-pointer`}
         to="/scentedCandle"
       // onMouseEnter={()=> setScentedHover(true)}
       >
@@ -27,7 +52,7 @@ const Hero = () => {
 
       {/* Perfumes */}
       <Link
-        style={{ backgroundImage: `url(${perfume})` }}
+        style={{ backgroundImage: `url(${perfumeImg})` }}
         className="bg-cover bg-center bg-no-repeat transition-all duration-500 flex items-center justify-center group hover:scale-105 hover:z-10 cursor-pointer"
         to="/perfume"
       >
@@ -39,7 +64,7 @@ const Hero = () => {
 
       {/* Perfume Wax */}
       <Link
-        style={{ backgroundImage: `url(${wax})` }}
+        style={{ backgroundImage: `url(${perfumeWaxImg})` }}
         className="bg-cover bg-center bg-no-repeat transition-all duration-500 flex items-center justify-center group hover:scale-105 hover:z-10 cursor-pointer"
         to="/perfumeWax"
       >
