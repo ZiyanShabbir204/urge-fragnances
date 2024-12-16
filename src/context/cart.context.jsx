@@ -43,6 +43,11 @@ export const CartProvider = ({ children }) => {
     // localStorage.setItem("cart", JSON.stringify(currentCart));
     setProducts(currentCart);
   };
+
+  const orderCompleted = ()=>{
+    localStorage.setItem("cart",null)
+    setProducts([])
+  }
   const removeProduct = (name, size) => {
     const newProduct = products.filter(
       (p) => !(p.name === name && p.size === size)
@@ -83,6 +88,7 @@ export const CartProvider = ({ children }) => {
     increaseQuantity,
     decreaseQuantity,
     totalBill,
+    orderCompleted
   };
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

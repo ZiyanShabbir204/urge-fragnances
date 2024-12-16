@@ -5,6 +5,7 @@ import axios from "axios";
 // local storage work
 
 const Checkout = () => {
+  
   const [formData, setFormData] = useState({
     email: "",
     signUpForUpdates: false,
@@ -18,7 +19,7 @@ const Checkout = () => {
     paymentMethod: "Cash on Delivery",
     billingAddress: "same",
   });
-  const {products,totalBill} = useCart()
+  const {products,totalBill,orderCompleted} = useCart()
   
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -30,10 +31,27 @@ const Checkout = () => {
   };
 
   const handleSubmit = async (e) => {
+    
     e.preventDefault();
     try {
-        const order = await axios.post(`${import.meta.env.VITE_HOSTURL}/order`,formData)
-        console.log("order created",order)
+      const newOrder =  { ...formData,products:products,totalBill}
+        const order = await axios.post(`${import.meta.env.VITE_HOSTURL}/order`,newOrder)
+        setFormData({
+          email: "",
+          signUpForUpdates: false,
+          country: "Pakistan",
+          firstName: "",
+          lastName: "",
+          address: "",
+          city: "",
+          postalCode: "",
+          phoneNumber: "",
+          paymentMethod: "Cash on Delivery",
+          billingAddress: "same",
+        })
+        orderCompleted()
+
+        // console.log("order created",order)
         
     } catch (error) {
         console.log("error in creating order",error)
