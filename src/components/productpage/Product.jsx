@@ -128,9 +128,9 @@ const Product = () => {
             </div>
 
             <div className="qty-div">
-              <label className="block text-lg font-medium text-gray-600 mb-2">
+              {/* <label className="block text-lg font-medium text-gray-600 mb-2">
                 QTY:{" " + maxQuantity}
-              </label>
+              </label> */}
 
               <div className="qty-addcart flex sm:flex-row flex-col gap-2">
                 <div className="flex gap-4 items-center border border-black w-36 h-11 px-2 justify-between">
@@ -228,9 +228,9 @@ const Product = () => {
             </div>
 
             <div className="qty-div">
-              <label className="block text-lg font-medium text-gray-600 mb-2">
+              {/* <label className="block text-lg font-medium text-gray-600 mb-2">
                 QTY:{" " + maxQuantity}
-              </label>
+              </label> */}
               <div className="qty-addcart flex sm:flex-row flex-col gap-2">
                 <div className="flex gap-4 items-center border border-black w-36 h-11 px-2 justify-between">
                   <button
@@ -312,9 +312,9 @@ const Product = () => {
             </div>
 
             <div className="qty-div">
-              <label className="block text-lg font-medium text-gray-600 mb-2">
+              {/* <label className="block text-lg font-medium text-gray-600 mb-2">
                 QTY:{" " + maxQuantity}
-              </label>
+              </label> */}
               <div className="qty-addcart flex sm:flex-row flex-col gap-2">
                 <div className="flex gap-4 items-center border border-black w-36 h-11 px-2 justify-between">
                   <button

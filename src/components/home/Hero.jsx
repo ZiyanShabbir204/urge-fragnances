@@ -25,7 +25,7 @@ const Hero = () => {
       } else {
         setCandleImg(candle);
         setPerfumeImg(perfume);
-        setPerfumeImg(wax);
+        setPerfumeWaxImg(wax);
       }
     };
 
