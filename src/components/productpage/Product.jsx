@@ -13,6 +13,7 @@ const Product = () => {
   const type = searchParams.get("type");
   const [product, setProduct] = useState([]);
   const [size, setSize] = useState(type == "scentedCandle" ? "medium" : "10 gm");
+  const [sizeId, setSizeID] = useState("");
   const [maxQuantity, setMaxQuantity] = useState(0)
   // const [size, setSize] = useState(
   //   type == "scentedCandle"
@@ -25,6 +26,16 @@ const Product = () => {
   const [price, setPrice] = useState();
   const [qty, setQty] = useState(1);
 
+
+  const getTableNameForType = (type) => {
+    const typeMappings = {
+      scentedCandle: "ScentedCandles",
+      perfume: "Perfumes",
+      perfumeWax: "PerfumeWax",
+    };
+
+    return typeMappings[type] || null;
+  };
 
   const fetchProductData = async () => {
     if (type === "scentedCandle") {
@@ -55,6 +66,7 @@ const Product = () => {
       const defaultSize = product.sizes.find((s) => s.size === "medium");
       if (defaultSize) {
         setSize(defaultSize.size);
+        setSizeID(defaultSize._id);
         setPrice(defaultSize.price);
         setMaxQuantity(defaultSize.quantity)
       } else {
@@ -62,7 +74,7 @@ const Product = () => {
         setSize(product.sizes[0].size);
         setPrice(product.sizes[0].price);
         setMaxQuantity(product.sizes[0].quantity)
-
+        setSizeID(product.sizes[0]._id);
 
       }
     }
@@ -71,6 +83,7 @@ const Product = () => {
   const handleSizeChange = (e) => {
     const obj = product.sizes.find((p) => p.size === e.target.value);
     setSize(obj.size);
+    setSizeID(obj._id)
     setPrice(obj.price);
   };
 
@@ -84,8 +97,19 @@ const Product = () => {
   const cartHandler = () => {
     // console.log("products", product)
     // console.log("products image", (product.sizes[0].img1))
+    const tabletype = getTableNameForType(type);
 
-    updateCart(product.sizes[0].img1, price, product.name, size, qty, maxQuantity);
+    updateCart(
+      product.sizes[0].img1,
+      price,
+      product.name,
+      size,
+      qty,
+      maxQuantity,
+      tabletype,
+      product._id,
+      sizeId
+    );
   };
 
   if (!product.name) return <p>Loading...</p>;
