@@ -20,15 +20,36 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem("cart", JSON.stringify(products));
   }, [products]);
 
-  const updateCart = (productImage, price, name, size, quantity,maxQuantity) => {
+  const updateCart = (
+    productImage,
+    price,
+    name,
+    size,
+    quantity,
+    maxQuantity,
+    type,
+    productId,
+    sizeId
+  ) => {
     const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
+    // const productIndex = currentCart.findIndex(
+    //   (product) => product.name === name && product.size === size
+    // );
     const productIndex = currentCart.findIndex(
-      (product) => product.name === name && product.size === size
+      (product) => product.productId === productId && product.sizeId === sizeId
     );
 
     if (productIndex > -1) {
       // If the product exists, increase the quantity
       currentCart[productIndex].quantity += quantity;
+      // Ensure the quantity does not exceed the maxQuantity
+      // if (
+      //   currentCart[productIndex].quantity >
+      //   currentCart[productIndex].maxQuantity
+      // ) {
+      //   currentCart[productIndex].quantity =
+      //     currentCart[productIndex].maxQuantity;
+      // }
     } else {
       // If the product doesn't exist, add it to the cart
       currentCart.push({
@@ -37,7 +58,10 @@ export const CartProvider = ({ children }) => {
         price,
         productImage: productImage,
         quantity: quantity,
-        maxQuantity
+        maxQuantity,
+        type, // Product type (e.g., scentedCandle, perfume)
+        productId, // Product ID
+        sizeId, // Size ID
       });
     }
     // localStorage.setItem("cart", JSON.stringify(currentCart));
