@@ -5,7 +5,7 @@ const ProductCard = ({ name, price, img1, type }) => {
     // shadow-[-2px_8px_24px_2px_rgba(0,0,0,0.07)]z
 
   return (
-    <Link to={`/productpage?type=${type}&name=${name}`} className="flex flex-col items-center justify-center shadow-md bg-white-100  hover:scale-105 duration-300">
+    <Link to={`/productpage?type=${encodeURIComponent(type)}&name=${encodeURIComponent(name)}`} className="flex flex-col items-center justify-center shadow-md bg-white-100  hover:scale-105 duration-300">
       <div class="w-full max-w-sm mb-6">
         <img
           src={img1}

@@ -35,8 +35,17 @@ const PerfumePage = () => {
   const [fetchProduct, setFetchProduct] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_HOSTURL}/perfumes?gender=${gender}`);
-      setFetchProduct(response.data);
+      if (gender == "All") {
+        const response = await axios.get(
+          `${import.meta.env.VITE_HOSTURL}/perfumes`
+        );
+        setFetchProduct(response.data);
+      } else {
+        const response = await axios.get(
+          `${import.meta.env.VITE_HOSTURL}/perfumes?gender=${gender}`
+        );
+        setFetchProduct(response.data);
+      }
     } catch (error) {
       console.log(error)
     }
@@ -77,7 +86,6 @@ const PerfumePage = () => {
           />
         </div>
         <div className="element">
-
           <Card
             title={obj2.title_02}
             description={obj2.description_02}
@@ -86,9 +94,8 @@ const PerfumePage = () => {
             setGender={setGender}
           />
         </div>
-
       </div>
-      <h1 className="text-center mt-5 text-4xl font-bold">{gender} Categories</h1>
+      <h1 className="text-center mt-5 text-4xl font-bold">{gender} Perfumes</h1>
       <Products product={fetchProduct} type="perfume" />
     </>
   );

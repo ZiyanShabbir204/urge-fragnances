@@ -1,8 +1,4 @@
 import React, { useEffect, useState } from "react";
-import image1 from "../../assets/images/home/waxhomepage.png";
-import image2 from "../../assets/images/home/perfumehomepage.png";
-import image3 from "../../assets/images/home/candlehomepage.jpg";
-
 import perfume from "../../assets/images/home/perfume.jpg"
 import perfumeMobile from "../../assets/images/home/perfumehomepage.png"
 import wax from "../../assets/images/home/wax.jpg"
@@ -18,7 +14,7 @@ const Hero = () => {
   useEffect(() => {
     // Check screen width and update background image
     const handleResize = () => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth < 1024) {
         setCandleImg(candleMobile);
         setPerfumeImg(perfumeMobile);
         setPerfumeWaxImg(waxMobile);
@@ -36,13 +32,14 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 h-screen overflow-hidden">
+    <div className="grid grid-cols-1 md:grid-cols-3 h-screen overflow-hidden">
       {/* Scented Candles */}
       <Link
-        style={{ backgroundImage: `url(${candleImg})` }}
-        className={`bg-cover bg-center bg-no-repeat transition-all duration-500 flex items-center justify-center group hover:scale-105 hover:z-10 cursor-pointer`}
+        style={{
+          backgroundImage: `url(${candleImg})`,
+        }}
+        className={`relative bg-cover bg-center bg-no-repeat transition-all duration-500 flex items-center justify-center group hover:scale-105 hover:z-0 cursor-pointer`}
         to="/scentedCandle"
-      // onMouseEnter={()=> setScentedHover(true)}
       >
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all"></div>
         {/* <h1 className="text-white font-bold text-4xl group-hover:opacity-100 absolute transition-all duration-500">
@@ -52,8 +49,10 @@ const Hero = () => {
 
       {/* Perfumes */}
       <Link
-        style={{ backgroundImage: `url(${perfumeImg})` }}
-        className="bg-cover bg-center bg-no-repeat transition-all duration-500 flex items-center justify-center group hover:scale-105 hover:z-10 cursor-pointer"
+        style={{
+          backgroundImage: `url(${perfumeImg})`,
+        }}
+        className="relative bg-cover bg-center bg-no-repeat transition-all duration-500 flex items-center justify-center group hover:scale-105 hover:z-0 cursor-pointer"
         to="/perfume"
       >
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all"></div>
@@ -64,8 +63,10 @@ const Hero = () => {
 
       {/* Perfume Wax */}
       <Link
-        style={{ backgroundImage: `url(${perfumeWaxImg})` }}
-        className="bg-cover bg-center bg-no-repeat transition-all duration-500 flex items-center justify-center group hover:scale-105 hover:z-10 cursor-pointer"
+        style={{
+          backgroundImage: `url(${perfumeWaxImg})`,
+        }}
+        className="relative bg-cover bg-center bg-no-repeat transition-all duration-500 flex items-center justify-center group hover:scale-105 hover:z-0 cursor-pointer"
         to="/perfumeWax"
       >
         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all"></div>
