@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import ScentedHero from "../../components/scentedCandle/ScentedHero";
 import Products from "../../components/scentedCandle/Products";
 import HeroImage from "../../assets/images/perfume/hero-img.png"
@@ -10,6 +10,19 @@ import axios from "axios";
 import "../PerfumePage/perfumepage.css"
 const PerfumePage = () => {
   const [gender, setGender] = useState("All")
+  const perfumesRef = useRef(null);
+
+  const handleScrollToPerfumes = () => {
+    const offset = 100; // Offset in pixels
+    const elementTop = perfumesRef.current.getBoundingClientRect().top; // Get element's top position relative to the viewport
+    const scrollPosition = window.scrollY + elementTop - offset; // Calculate the scroll position with the offset
+
+    window.scrollTo({
+      top: scrollPosition,
+      behavior: "smooth",
+    });
+  };
+
   const obj = {
     HeroImage: HeroImage,
     heading_01: "Scented Perfume",
@@ -66,7 +79,7 @@ const PerfumePage = () => {
         para_03={obj.para_03}
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-0  place-items-center wrapper">
+      <div className="px-6 grid grid-cols-1 sm:grid-cols-3 sm:gap-8 lg:gap-16 xl3:gap-24 place-items-center wrapper">
         <div className="element">
           <Card
             title={obj2.title_03}
@@ -74,6 +87,7 @@ const PerfumePage = () => {
             imageUrl={obj2.imageUrl_03}
             gender="All"
             setGender={setGender}
+            handleScrollToTarget={handleScrollToPerfumes}
           />
         </div>
         <div className="element">
@@ -83,6 +97,7 @@ const PerfumePage = () => {
             imageUrl={obj2.imageUrl}
             gender="Unisex"
             setGender={setGender}
+            handleScrollToTarget={handleScrollToPerfumes}
           />
         </div>
         <div className="element">
@@ -92,10 +107,13 @@ const PerfumePage = () => {
             imageUrl={obj2.imageUrl_02}
             gender="Male"
             setGender={setGender}
+            handleScrollToTarget={handleScrollToPerfumes}
           />
         </div>
       </div>
-      <h1 className="text-center mt-5 text-4xl font-bold">{gender} Perfumes</h1>
+      <h1 ref={perfumesRef} className="text-center mt-12 text-4xl font-bold">
+        {gender} Perfumes
+      </h1>
       <Products product={fetchProduct} type="perfume" />
     </>
   );

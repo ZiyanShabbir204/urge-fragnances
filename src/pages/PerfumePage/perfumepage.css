@@ -1,8 +1,20 @@
 /* Default state: No blur for any div */
 .wrapper .element {
     filter: none;
+    width: 100%;
     opacity: 1;
     transition: filter 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+/* Prevent blur on gap hover */
+.wrapper {
+    background: transparent; /* Ensure wrapper doesn't interfere */
+    pointer-events: none; /* Disable pointer events on the wrapper */
+}
+
+/* Allow pointer events on children */
+.wrapper .element {
+    pointer-events: all; /* Re-enable pointer events for elements */
 }
 
 /* Apply blur to siblings when hovering on any .element */
@@ -16,3 +28,4 @@
     filter: none;
     opacity: 1;
 }
+
