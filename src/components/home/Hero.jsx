@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import perfume from "../../assets/images/home/perfume.jpg"
 import perfumeMobile from "../../assets/images/home/perfumehomepage.png"
 import wax from "../../assets/images/home/wax.jpg"
-import waxMobile from "../../assets/images/home/waxhomepage.png"
+import waxMobile from "../../assets/images/home/waxhomepage.jpg"
 import candle from "../../assets/images/home/candle.jpg"
-import candleMobile from "../../assets/images/home/candlehomepage.png"
+import candleMobile from "../../assets/images/home/candlehomepage.jpg"
 import { Link } from "react-router-dom";
 
 const Hero = () => {

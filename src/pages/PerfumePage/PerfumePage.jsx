@@ -25,10 +25,12 @@ const PerfumePage = () => {
 
   const obj = {
     HeroImage: HeroImage,
-    heading_01: "Scented Perfume",
-    para_01: "Elevate your senses with our Scented Perfumes, expertly crafted to leave a lasting impression with their alluring and sophisticated fragrances.",
+    heading_01: "Perfumes",
+    para_01:
+      "Elevate your senses with our exquisite Perfumes, expertly crafted to leave a lasting impression with their alluring and sophisticated fragrances.",
     para_02: "Redefining elegance and charm since 2023.",
-    para_03: "Discover our exclusive collection of vibrant, floral, and musky notes designed for every personality and occasion."
+    para_03:
+      "Discover our exclusive collection of vibrant notes designed for every personality and occasion.",
   };
 
 

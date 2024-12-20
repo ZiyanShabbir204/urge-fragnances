@@ -7,7 +7,7 @@ import axios from "axios";
 const ScentedCandle = () => {
   const obj = {
     HeroImage: HeroImage,
-    heading_01: "scented candles",
+    heading_01: "Scented Candles",
     para_01: "Perfect for creating a luxurious ambiance, our premium scented candles elevate your space with their exquisite fragrance.",
     para_02: "operating since 2023",
     para_03: "Handcrafted with organic soy wax for a clean burn."
@@ -43,12 +43,8 @@ const ScentedCandle = () => {
         para_02={obj.para_02}
         para_03={obj.para_03}
       />
-      
 
-      <Products
-        product={fetchProduct}
-        type="scentedCandle"
-      />
+      <Products product={fetchProduct} type="scentedCandle" />
     </>
   );
 };

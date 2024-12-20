@@ -18,9 +18,8 @@ const ProductCard = ({ name, price, img1, type }) => {
           class="w-full h-auto rounded-t-lg "
         />
       </div>
-      <div class="w-full max-w-sm text-center text-customBlack pb-4 lg:p-4 ">
-        <h2 class="text-2xl font-semibold  mb-2">{name}</h2>
-
+      <div class="w-full max-w-sm flex justify-between items-center text-center text-customBlack pb-4 lg:py-4 px-6">
+        <h2 class="text-2xl font-semibold">{name}</h2>
         <p class="text-xl font-semibold text-gray-800">Rs. {price}</p>
       </div>
     </Link>
