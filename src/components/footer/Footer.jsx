@@ -73,7 +73,7 @@ const Footer = () => {
                   </li>
                   <li>
                     <a
-                      href="#"
+                      href="/contact"
                       className="text-white hover:text-customBrown"
                     >
                       Contact Us
