@@ -15,7 +15,7 @@ const ScentedHero = ({HeroImage,heading_01, para_01, para_02, para_03}) => {
           <p class="text-lg  mb-4">{para_01}</p>
         </div>
       </div>
-      <div className="w-full text-center px-6 py-2 md:py-6 flex flex-col justify-center gap-4 items-center bg-customBrown text-customLightGray">
+      <div className="w-full text-center px-6 py-2 md:py-6 flex flex-col justify-center gap-4 items-center bg-orange-900 text-customLightGray">
         <p className="text-lg">{para_03}</p>
       </div>
     </div>

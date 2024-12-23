@@ -28,10 +28,8 @@ export default {
         customNero : "#262626",
         customBrown : "#513A28",
         customBeige :  "#DFD5C0",
-        customLightBrown: "#816F4C"
-
-       
-
+        customLightBrown: "#816F4C",
+        customOrange: "#F69127"
       },
       fontSize: {
         'custom': ['16px', '26px'],
