@@ -87,6 +87,7 @@ const Product = () => {
     setSize(obj.size);
     setSizeID(obj._id)
     setPrice(obj.price);
+    setMaxQuantity(obj.quantity);
   };
 
   const incrementQty = () => {
