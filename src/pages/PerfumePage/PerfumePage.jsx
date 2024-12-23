@@ -36,13 +36,13 @@ const PerfumePage = () => {
 
 
   const obj2 = {
-    title: "Unisex Perfumes",
+    title: "Unisex Collection",
     description: "Explore a wide range of fragrances suitable for everyone.",
     imageUrl: unisex,
-    title_02: "Men Perfumes",
+    title_02: "Men's Collection",
     description_02: "Explore a wide range of Men fragnances suitable for Men.",
     imageUrl_02: men,
-    title_03: "All Perfumes",
+    title_03: "Complete Collection",
     description_03: "Explore a wide range of fragrances suitable for everyone.",
     imageUrl_03: all,
   };

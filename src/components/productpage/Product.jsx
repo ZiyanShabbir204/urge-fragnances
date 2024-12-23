@@ -77,7 +77,6 @@ const Product = () => {
         setPrice(product.sizes[0].price);
         setMaxQuantity(product.sizes[0].quantity)
         setSizeID(product.sizes[0]._id);
-
       }
     }
   }, [product]);
@@ -136,9 +135,12 @@ const Product = () => {
           </div>
           <div className="flex-1">
             <h1 className="text-3xl font-semibold mb-4">{product.name}</h1>
-            <p className="text-xl font-semibold text-gray-700 mb-4">
-              Rs. {price}.00
-            </p>
+
+            <div className="mb-5 uppercase">
+              <label className="block text-lg font-medium text-gray-600 mb-1" >Price:</label>
+              <p>Rs. {price}.00</p>
+            </div>
+
 
             <div className="mb-5 uppercase">
               <label className="block text-lg font-medium text-gray-600 mb-1">
@@ -209,7 +211,8 @@ const Product = () => {
                 </div>
               </div>
               {qty >= maxQuantity + 1 ? <h2 className="font-bold">Out of Stock</h2> : ""}
-              {maxQuantity <= 0 ? <h2 className="font-bold">Out of Stock</h2> : ""}
+              {qty != 1 ? <>{maxQuantity <= 0 ? <h2 className="font-bold">Out of Stock</h2> : ""}</> : ""}
+
             </div>
 
             <p className="text-lg text-gray-600 mb-4 mt-6">{product.intro}</p>

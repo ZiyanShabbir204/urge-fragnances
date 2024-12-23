@@ -11,7 +11,7 @@ const ScentedCandle = () => {
     para_01:
       "Elevate your ambiance with Urge Fragrances' premium scented candles, crafted from a luxurious blend of soy wax and pure beeswax. Designed to provide a clean, long-lasting burn, our candles fill your space with captivating fragrances that exude sophistication. Perfect for creating a calming atmosphere or adding a touch of elegance to any setting, these premium candles are a must-have for those who appreciate quality and style. Transform your moments into lasting memories with the warm glow and enchanting scents of Urge Fragrances' scented candles.",
     para_02: "operating since 2023",
-    para_03: "Handcrafted with organic soy wax for a clean burn.",
+    para_03: "Handcrafted with a pure blend of soy wax and bees wax for a clean burn.",
   };
 
   //here instead of this the api will hit from scentedCandle database

@@ -79,14 +79,14 @@ const Footer = () => {
                       Contact Us
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a
                       href="#"
                       className="text-customBrown hover:text-customBrown"
                     >
                       Shipping + Returns
                     </a>
-                  </li>
+                  </li> */}
                   <li>
                     <a
                       href="#"
@@ -95,39 +95,32 @@ const Footer = () => {
                       Privacy Policy
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a
                       href="#"
                       className="text-customBrown hover:text-customBrown"
                     >
                       Accessibility
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
 
               {/* Shop Section */}
               <div className="w-1/3">
-                <h3 className="text-lg font-medium text-customBrown mb-4">
+                {/* <h3 className="text-lg font-medium text-customBrown mb-4">
                   Shop
-                </h3>
+                </h3> */}
                 <ul className="space-y-2">
-                  <li>
+                  {/* <li>
                     <a
                       href="#"
                       className="text-customBrown hover:text-customBrown"
                     >
                       Rewards
                     </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="text-customBrown hover:text-customBrown"
-                    >
-                      Gift Cards
-                    </a>
-                  </li>
+                  </li> */}
+
                   <li>
                     <a
                       href="#"
@@ -136,22 +129,15 @@ const Footer = () => {
                       Bulk Ordering
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="#"
-                      className="text-customBrown hover:text-customBrown"
-                    >
-                      Candle Care
-                    </a>
-                  </li>
-                  <li>
+
+                  {/* <li>
                     <a
                       href="#"
                       className="text-customBrown hover:text-customBrown"
                     >
                       Our Stores
                     </a>
-                  </li>
+                  </li> */}
                   <li>
                     <a
                       href="#"
