@@ -96,7 +96,7 @@ const Navbar = () => {
           onClick={() => navigate("/")}
         >
           <img className="w-12 md:w-16" src={logo} alt="" srcset="" />
-          <p className="text-lg md:text-xl font-bold">Urge Fragnances</p>
+          <p className="text-lg md:text-xl font-bold">Urge Fragrances</p>
         </div>
 
         {/* Desktop Navigation */}
@@ -189,7 +189,7 @@ const Navbar = () => {
                 src={logo}
                 alt="Urge Fragrances Logo"
               />
-              <p className="text-lg font-bold">Urge Fragnances</p>
+              <p className="text-lg font-bold">Urge Fragrances</p>
             </div>
             <button
               onClick={toggleMobileMenu}
