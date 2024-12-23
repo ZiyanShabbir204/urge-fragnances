@@ -6,11 +6,13 @@ import axios from "axios";
 
 const PerfumeWax = () => {
     const obj = {
-        HeroImage: HeroImage,
-        heading_01: "Perfume Wax",
-        para_01: "Transform your space with our luxurious Perfume Wax, designed to infuse your surroundings with long-lasting and exquisite fragrances.",
-        para_02: "Creating memorable scents since 2023.",
-        para_03: "Our in-house crafted waxes feature fresh, fruity, and captivating fragrances to suit every mood and occasion."
+      HeroImage: HeroImage,
+      heading_01: "Perfume Wax",
+      para_01:
+        "Experience the elegance of Urge Fragrances' perfume wax, a unique blend of pure beeswax, nourishing palm oil, and exquisite perfume oils. Designed for those who seek alcohol-free fragrances, our solid perfume offers a skin-friendly, long-lasting scent with a luxurious touch. Crafted to enhance your mood—whether you desire calm, confidence, or invigoration—it’s the perfect companion for your on-the-go lifestyle. Its compact, pocket-friendly design ensures you can refresh your fragrance anytime, anywhere. Discover the sophistication and versatility of Urge Fragrances' perfume wax and make it a part of your daily essentials.",
+      para_02: "Creating memorable scents since 2023.",
+      para_03:
+        "Our in-house crafted waxes feature fresh, fruity, and captivating fragrances to suit every mood and occasion.",
     };
     
     const [fetchProduct, setFetchProduct] = useState([]);

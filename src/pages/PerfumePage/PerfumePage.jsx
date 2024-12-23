@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import ScentedHero from "../../components/scentedCandle/ScentedHero";
 import Products from "../../components/scentedCandle/Products";
 import HeroImage from "../../assets/images/perfume/hero-img.png"
@@ -10,12 +10,27 @@ import axios from "axios";
 import "../PerfumePage/perfumepage.css"
 const PerfumePage = () => {
   const [gender, setGender] = useState("All")
+  const perfumesRef = useRef(null);
+
+  const handleScrollToPerfumes = () => {
+    const offset = 100; // Offset in pixels
+    const elementTop = perfumesRef.current.getBoundingClientRect().top; // Get element's top position relative to the viewport
+    const scrollPosition = window.scrollY + elementTop - offset; // Calculate the scroll position with the offset
+
+    window.scrollTo({
+      top: scrollPosition,
+      behavior: "smooth",
+    });
+  };
+
   const obj = {
     HeroImage: HeroImage,
-    heading_01: "Scented Perfume",
-    para_01: "Elevate your senses with our Scented Perfumes, expertly crafted to leave a lasting impression with their alluring and sophisticated fragrances.",
+    heading_01: "Perfumes",
+    para_01:
+      "Urge Fragrances presents an exquisite collection of premium perfumes, meticulously crafted for those who appreciate luxury and sophistication. Each fragrance is designed with the finest ingredients, ensuring a rich, captivating scent that lingers throughout the day. With unparalleled longevity and exceptional sillage, Urge Fragrances redefine elegance, making every moment unforgettable. Whether you seek bold, charismatic notes or subtle, refined aromas, our collection offers the perfect scent to match your unique style. Experience the art of perfumery with Urge Fragrances—where quality meets timeless allure.",
     para_02: "Redefining elegance and charm since 2023.",
-    para_03: "Discover our exclusive collection of vibrant, floral, and musky notes designed for every personality and occasion."
+    para_03:
+      "Discover our exclusive collection of vibrant notes designed for every personality and occasion.",
   };
 
 
@@ -35,8 +50,17 @@ const PerfumePage = () => {
   const [fetchProduct, setFetchProduct] = useState([]);
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${import.meta.env.VITE_HOSTURL}/perfumes?gender=${gender}`);
-      setFetchProduct(response.data);
+      if (gender == "All") {
+        const response = await axios.get(
+          `${import.meta.env.VITE_HOSTURL}/perfumes`
+        );
+        setFetchProduct(response.data);
+      } else {
+        const response = await axios.get(
+          `${import.meta.env.VITE_HOSTURL}/perfumes?gender=${gender}`
+        );
+        setFetchProduct(response.data);
+      }
     } catch (error) {
       console.log(error)
     }
@@ -57,38 +81,59 @@ const PerfumePage = () => {
         para_03={obj.para_03}
       />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-0  place-items-center wrapper">
-        <div className="element">
-          <Card
-            title={obj2.title_03}
-            description={obj2.description_03}
-            imageUrl={obj2.imageUrl_03}
-            gender="All"
-            setGender={setGender}
-          />
-        </div>
-        <div className="element">
+      <div className="px-6 grid grid-cols-1 sm:grid-cols-3 sm:gap-8 lg:gap-16 xl3:gap-24 place-items-center wrapper">
+        <div
+          className={`element ${
+            gender === "Unisex"
+              ? "opacity-100 filter-none" // Active category styles
+              : "opacity-70 filter blur-[2px]" // Non-active categories
+          } transition-all duration-300`}
+        >
           <Card
             title={obj2.title}
             description={obj2.description}
             imageUrl={obj2.imageUrl}
             gender="Unisex"
             setGender={setGender}
+            handleScrollToTarget={handleScrollToPerfumes}
           />
         </div>
-        <div className="element">
-
+        <div
+          className={`element ${
+            gender === "All"
+              ? "opacity-100 filter-none" // Active category styles
+              : "opacity-70 filter blur-[2px]" // Non-active categories
+          } transition-all duration-300`}
+        >
+          <Card
+            title={obj2.title_03}
+            description={obj2.description_03}
+            imageUrl={obj2.imageUrl_03}
+            gender="All"
+            setGender={setGender}
+            handleScrollToTarget={handleScrollToPerfumes}
+          />
+        </div>
+        <div
+          className={`element ${
+            gender === "Male"
+              ? "opacity-100 filter-none" // Active category styles
+              : "opacity-70 filter blur-[2px]" // Non-active categories
+          } transition-all duration-300`}
+        >
           <Card
             title={obj2.title_02}
             description={obj2.description_02}
             imageUrl={obj2.imageUrl_02}
             gender="Male"
             setGender={setGender}
+            handleScrollToTarget={handleScrollToPerfumes}
           />
         </div>
-
       </div>
-      <h1 className="text-center mt-5 text-4xl font-bold">{gender} Categories</h1>
+      <h1 ref={perfumesRef} className="text-center mt-12 text-4xl font-bold">
+        {gender} Perfumes
+      </h1>
       <Products product={fetchProduct} type="perfume" />
     </>
   );

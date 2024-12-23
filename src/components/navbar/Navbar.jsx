@@ -6,7 +6,7 @@ import { useCart } from "../../context/cart.context";
 import { CiShoppingCart } from "react-icons/ci";
 import { FaBars, FaTimes } from "react-icons/fa";
 import logo from "../../assets/images/navbar/urge logo-01.png"
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [activeItem, setActiveItem] = useState(null);
@@ -88,39 +88,46 @@ const Navbar = () => {
   // }, []);
 
   return (
-    <>
+    <div className="h-fit pb-16 md:pb-20 z-40">
       {/* Main Navbar */}
-      <div className="relative z-10 px-2 sm:px-10 py-2 flex justify-between lg:justify-start md:gap-40 items-center">
-        <div className="overflow-hidden flex justify-center items-center cursor-pointer" onClick={()=> navigate("/")}>
-          <img className="w-20" src={logo} alt="" srcset="" />
-          <p className="text-xl font-bold">Urge Fragnances</p>
+      <div className="fixed bg-white w-full shadow-md z-10 px-2 sm:px-10 lg:px-14 py-2 flex justify-between lg:justify-start md:gap-40 items-center">
+        <div
+          className="overflow-hidden flex justify-center items-center cursor-pointer md:gap-3"
+          onClick={() => navigate("/")}
+        >
+          <img className="w-12 md:w-16" src={logo} alt="" srcset="" />
+          <p className="text-lg md:text-xl font-bold">Urge Fragnances</p>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:block">
           <div className="list">
             <ul className="text-xl flex gap-10">
-              
               <li
-                className={`cursor-pointer relative group ${activeItem === "li-3" ? "active" : ""}`}
+                className={`cursor-pointer relative group ${
+                  activeItem === "li-3" ? "active" : ""
+                }`}
                 id="li-3"
-                onClick={()=>navigate("/perfumeWax")}
-
+                onClick={() => navigate("/perfumeWax")}
               >
                 Perfume Wax
                 <span className="absolute bottom-[-10px] left-0 w-0 h-[5px] bg-black transition-all duration-300 ease-in-out group-hover:w-full"></span>
               </li>
               <li
-                className={`cursor-pointer relative group ${activeItem === "li-2" ? "active" : ""}`}
+                className={`cursor-pointer relative group ${
+                  activeItem === "li-2" ? "active" : ""
+                }`}
                 id="li-2"
-                onClick={()=>navigate("/perfume")}
+                onClick={() => navigate("/perfume")}
               >
                 Perfumes
                 <span className="absolute bottom-[-10px] left-0 w-0 h-[5px] bg-black transition-all duration-300 ease-in-out group-hover:w-full"></span>
               </li>
               <li
-                className={`cursor-pointer relative group ${activeItem === "li-1" ? "active" : ""}`}
-                onClick={()=>navigate("/scentedCandle")}
+                className={`cursor-pointer relative group ${
+                  activeItem === "li-1" ? "active" : ""
+                }`}
+                onClick={() => navigate("/scentedCandle")}
                 id="li-1"
               >
                 Scented Candles
@@ -128,10 +135,17 @@ const Navbar = () => {
               </li>
 
               {/* cart option */}
-              <li className="absolute right-20 cursor-pointer" onClick={cartHandler}>
+              <li
+                className="absolute right-14 cursor-pointer"
+                onClick={cartHandler}
+              >
                 <div className="indicator">
-                  <span className="indicator-item badge bg-orange-900 text-white">{products.length}</span>
-                  <div className="text-4xl"><CiShoppingCart /></div>
+                  <span className="indicator-item badge bg-orange-900 text-white">
+                    {products.length}
+                  </span>
+                  <div className="text-4xl">
+                    <CiShoppingCart />
+                  </div>
                 </div>
               </li>
             </ul>
@@ -139,93 +153,66 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Menu Toggle */}
-        <div className="lg:hidden flex items-center">
-          <div
-            className="mr-4 relative cursor-pointer"
-            onClick={cartHandler}
-          >
+        <div className="lg:hidden flex items-center gap-4 pr-4">
+          <div className="mr-4 relative cursor-pointer" onClick={cartHandler}>
             <div className="indicator">
-              <span className="indicator-item badge bg-orange-900 text-white">{products.length}</span>
-              <div className="text-2xl"><CiShoppingCart /></div>
+              <span className="indicator-item badge bg-orange-900 text-white">
+                {products.length}
+              </span>
+              <div className="text-2xl">
+                <CiShoppingCart />
+              </div>
             </div>
           </div>
-          <button
-            onClick={toggleMobileMenu}
-            className="focus:outline-none"
-          >
-            {isMobileMenuOpen ? <FaTimes className="text-2xl" /> : <FaBars className="text-2xl" />}
+          <button onClick={toggleMobileMenu} className="focus:outline-none">
+            {isMobileMenuOpen ? (
+              <FaTimes className="text-2xl" />
+            ) : (
+              <FaBars className="text-2xl" />
+            )}
           </button>
         </div>
       </div>
 
       {/* Mobile Sidebar */}
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden">
-          <div className="fixed top-0 left-0 w-full h-full bg-white shadow-lg transform transition-transform duration-300 ease-in-out">
-            <div className="flex justify-between items-center p-4 border-b">
-              <div className="flex items-center space-x-2">
-                <img
-                  className="w-12 h-auto"
-                  src={logo}
-                  alt="Urge Fragrances Logo"
-                />
-                <p className="text-lg font-bold">Urge Fragnances</p>
-              </div>
-              <button
-                onClick={toggleMobileMenu}
-                className="focus:outline-none"
-              >
-                <FaTimes className="text-2xl" />
-              </button>
+        <div
+          className={`sidebar-container shadow-sm bg-customBeige shadow-offWhite fixed w-full h-full bg-cover bg-center overflow-scroll justify-start transition-transform duration-[400ms] left-0 z-50 ${
+            isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the menu
+        >
+          <div className="flex justify-between items-center px-2 py-4 border-b border-white">
+            <div className="flex items-center space-x-2">
+              <img
+                className="w-14 h-auto"
+                src={logo}
+                alt="Urge Fragrances Logo"
+              />
+              <p className="text-lg font-bold">Urge Fragnances</p>
             </div>
-
-            {/* <nav className="p-4">
-              <div className="mb-4">
-                <h3 className="text-lg font-semibold mb-2">Scented Candles</h3>
-                <ul className="space-y-2">
-                  <li className="text-md text-gray-600 hover:text-black cursor-pointer">
-                    link 1 of Scents
-                  </li>
-                  <li className="text-md text-gray-600 hover:text-black cursor-pointer">
-                    link 2
-                  </li>
-                  <li className="text-md text-gray-600 hover:text-black cursor-pointer">
-                    link 3
-                  </li>
-                </ul>
-              </div>
-
-              <div className="mb-4">
-                <h3 className="text-lg font-semibold mb-2">Perfumes</h3>
-                <ul className="space-y-2">
-                  <li className="text-md text-gray-600 hover:text-black cursor-pointer">
-                    link 1 of Candle
-                  </li>
-                  <li className="text-md text-gray-600 hover:text-black cursor-pointer">
-                    link 2
-                  </li>
-                  <li className="text-md text-gray-600 hover:text-black cursor-pointer">
-                    link 3
-                  </li>
-                </ul>
-              </div>
-
-              <div className="mb-4">
-                <h3 className="text-lg font-semibold mb-2">Perfume Wax</h3>
-                <ul className="space-y-2">
-                  <li className="text-md text-gray-600 hover:text-black cursor-pointer">
-                    link 1 of Fragnances
-                  </li>
-                  <li className="text-md text-gray-600 hover:text-black cursor-pointer">
-                    link 2
-                  </li>
-                  <li className="text-md text-gray-600 hover:text-black cursor-pointer">
-                    link 3
-                  </li>
-                </ul>
-              </div>
-            </nav> */}
+            <button
+              onClick={toggleMobileMenu}
+              className="pr-2 focus:outline-none"
+            >
+              <FaTimes className="text-2xl" />
+            </button>
           </div>
+
+          <nav className="p-6">
+            <Link to="/" onClick={toggleMobileMenu}>
+              <h3 className="text-lg font-semibold mb-8">Home</h3>
+            </Link>
+            <Link to="/perfumeWax" onClick={toggleMobileMenu}>
+              <h3 className="text-lg font-semibold mb-8">Perfume Wax</h3>
+            </Link>
+            <Link to="/perfume" onClick={toggleMobileMenu}>
+              <h3 className="text-lg font-semibold mb-8">Perfumes</h3>
+            </Link>
+            <Link to="/scentedCandle" onClick={toggleMobileMenu}>
+              <h3 className="text-lg font-semibold mb-8">Scented Candles</h3>
+            </Link>
+          </nav>
         </div>
       )}
 
@@ -253,8 +240,20 @@ const Navbar = () => {
           <li className="cursor-pointer">link 3</li>
         </ul>
       </div> */}
-    </>
+    </div>
   );
 };
 
 export default Navbar;
+
+{
+  /* <div
+            className={`fixed top-0 right-0 w-3/4 h-full bg-white shadow-lg transform transition-transform duration-400 z-50`}
+            style={{
+              transform: `${
+                isMobileMenuOpen ? "translateX(0)" : "translateX(100%)"
+              }`,
+            }}
+            
+          > */
+}
