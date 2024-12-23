@@ -27,7 +27,7 @@ const PerfumePage = () => {
     HeroImage: HeroImage,
     heading_01: "Perfumes",
     para_01:
-      "Elevate your senses with our exquisite Perfumes, expertly crafted to leave a lasting impression with their alluring and sophisticated fragrances.",
+      "Urge Fragrances presents an exquisite collection of premium perfumes, meticulously crafted for those who appreciate luxury and sophistication. Each fragrance is designed with the finest ingredients, ensuring a rich, captivating scent that lingers throughout the day. With unparalleled longevity and exceptional sillage, Urge Fragrances redefine elegance, making every moment unforgettable. Whether you seek bold, charismatic notes or subtle, refined aromas, our collection offers the perfect scent to match your unique style. Experience the art of perfumery with Urge Fragrances—where quality meets timeless allure.",
     para_02: "Redefining elegance and charm since 2023.",
     para_03:
       "Discover our exclusive collection of vibrant notes designed for every personality and occasion.",
@@ -82,17 +82,13 @@ const PerfumePage = () => {
       />
 
       <div className="px-6 grid grid-cols-1 sm:grid-cols-3 sm:gap-8 lg:gap-16 xl3:gap-24 place-items-center wrapper">
-        <div className="element">
-          <Card
-            title={obj2.title_03}
-            description={obj2.description_03}
-            imageUrl={obj2.imageUrl_03}
-            gender="All"
-            setGender={setGender}
-            handleScrollToTarget={handleScrollToPerfumes}
-          />
-        </div>
-        <div className="element">
+        <div
+          className={`element ${
+            gender === "Unisex"
+              ? "opacity-100 filter-none" // Active category styles
+              : "opacity-70 filter blur-[2px]" // Non-active categories
+          } transition-all duration-300`}
+        >
           <Card
             title={obj2.title}
             description={obj2.description}
@@ -102,7 +98,29 @@ const PerfumePage = () => {
             handleScrollToTarget={handleScrollToPerfumes}
           />
         </div>
-        <div className="element">
+        <div
+          className={`element ${
+            gender === "All"
+              ? "opacity-100 filter-none" // Active category styles
+              : "opacity-70 filter blur-[2px]" // Non-active categories
+          } transition-all duration-300`}
+        >
+          <Card
+            title={obj2.title_03}
+            description={obj2.description_03}
+            imageUrl={obj2.imageUrl_03}
+            gender="All"
+            setGender={setGender}
+            handleScrollToTarget={handleScrollToPerfumes}
+          />
+        </div>
+        <div
+          className={`element ${
+            gender === "Male"
+              ? "opacity-100 filter-none" // Active category styles
+              : "opacity-70 filter blur-[2px]" // Non-active categories
+          } transition-all duration-300`}
+        >
           <Card
             title={obj2.title_02}
             description={obj2.description_02}

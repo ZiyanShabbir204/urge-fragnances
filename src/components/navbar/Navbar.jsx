@@ -88,14 +88,14 @@ const Navbar = () => {
   // }, []);
 
   return (
-    <div className="h-fit pb-[72px] md:pb-24 z-40">
+    <div className="h-fit pb-16 md:pb-20 z-40">
       {/* Main Navbar */}
-      <div className="fixed bg-white w-full shadow-md z-10 px-2 sm:px-10 lg:px-14 py-3 flex justify-between lg:justify-start md:gap-40 items-center">
+      <div className="fixed bg-white w-full shadow-md z-10 px-2 sm:px-10 lg:px-14 py-2 flex justify-between lg:justify-start md:gap-40 items-center">
         <div
           className="overflow-hidden flex justify-center items-center cursor-pointer md:gap-3"
           onClick={() => navigate("/")}
         >
-          <img className="w-14 md:w-[4.5rem]" src={logo} alt="" srcset="" />
+          <img className="w-12 md:w-16" src={logo} alt="" srcset="" />
           <p className="text-lg md:text-xl font-bold">Urge Fragnances</p>
         </div>
 

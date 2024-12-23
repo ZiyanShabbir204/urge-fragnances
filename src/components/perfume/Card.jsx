@@ -23,7 +23,7 @@ const Card = ({
       />
       <div className="p-2 lg:p-6 w-3/4 lg:w-full flex flex-col justify-center items-center lg:justify-between h-[full]">
         <div>
-          <h2 className="text-xl font-bold text-gray-800">{title}</h2>
+          <h2 className="text-2xl font-bold text-gray-800">{title}</h2>
           <p className="hidden lg:block mt-2 text-gray-600">{description}</p>
         </div>
 

@@ -1,31 +1,14 @@
-/* Default state: No blur for any div */
 .wrapper .element {
-    filter: none;
     width: 100%;
-    opacity: 1;
-    transition: filter 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+  transition: filter 0.3s ease, opacity 0.3s ease; /* Smooth transition for blur and opacity */
 }
 
-/* Prevent blur on gap hover */
-.wrapper {
-    background: transparent; /* Ensure wrapper doesn't interfere */
-    pointer-events: none; /* Disable pointer events on the wrapper */
+.wrapper .element.filter-none {
+  filter: none; /* Remove blur for the focused element */
 }
 
-/* Allow pointer events on children */
-.wrapper .element {
-    pointer-events: all; /* Re-enable pointer events for elements */
+.wrapper .element.blur-sm {
+  filter: blur(5px); /* Blur non-focused elements */
 }
 
-/* Apply blur to siblings when hovering on any .element */
-.wrapper:hover .element {
-    filter: blur(5px);
-    opacity: 0.5;
-}
-
-/* Exclude the hovered element from the blur effect */
-.wrapper .element:hover {
-    filter: none;
-    opacity: 1;
-}
 

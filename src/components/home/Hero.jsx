@@ -32,7 +32,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 h-screen overflow-hidden">
+    <div className="grid grid-cols-1 md:grid-cols-3 h-[calc(100vh-64px)] md:h-[calc(100vh-80px)] overflow-hidden">
       {/* Scented Candles */}
       <Link
         style={{

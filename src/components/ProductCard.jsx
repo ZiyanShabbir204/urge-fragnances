@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ name, price, img1, type }) => {
-    // shadow-[-2px_8px_24px_2px_rgba(0,0,0,0.07)]z
 
   return (
     <Link
@@ -18,9 +17,11 @@ const ProductCard = ({ name, price, img1, type }) => {
           class="w-full h-auto rounded-t-lg "
         />
       </div>
-      <div class="w-full max-w-sm flex justify-between items-center text-center text-customBlack pb-4 lg:py-4 px-6">
-        <h2 class="text-2xl font-semibold">{name}</h2>
-        <p class="text-xl font-semibold text-gray-800">Rs. {price}</p>
+      <div class="w-full max-w-sm flex justify-between items-center text-center text-customBlack pb-1 px-4">
+        <h2 class="text-2xl font-bold">{name}</h2>
+      </div>
+      <div class="w-full max-w-sm text-customBlack pb-4 px-4">
+        <p class="text-xl text-gray-800">Rs. {price}</p>
       </div>
     </Link>
   );
