@@ -6,6 +6,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 import { FaLock } from "react-icons/fa";
 import axios from "axios";
 import { toast, ToastContainer } from 'react-toastify';
+import { InfinitySpin } from "react-loader-spinner";
 
 const Product = () => {
   const { updateCart } = useCart();
@@ -113,13 +114,16 @@ const Product = () => {
     toast.success("Product added to Cart");
   };
 
-  if (!product.name) return <p>Loading...</p>;
+  if (!product.name) return <InfinitySpin
+    visible={true}
+    width="200"
+    color="#4fa94d"
+    ariaLabel="infinity-spin-loading"
+  />
   // console.log(product)
-
 
   return (
     <>
-      {/* <ToastContainer /> */}
       {type == "scentedCandle" &&
         <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
           <div className="flex-1">
