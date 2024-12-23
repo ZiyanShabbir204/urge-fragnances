@@ -236,6 +236,11 @@ const Product = () => {
               <p>{product.type}</p>
             </div>
 
+            <div className="mb-5 uppercase">
+              <label className="block text-lg font-medium text-gray-600 mb-1" >Gender</label>
+              <p>{product.gender}</p>
+            </div>
+
             {/* <div className="mb-5 uppercase">
               <label className="block text-lg font-medium text-gray-600 mb-1" >Base Notes</label>
               <p>{product.sizes[0].base_notes}</p>
@@ -354,7 +359,7 @@ const Product = () => {
                     className="w-10 h-full flex text-center items-center justify-center text-xl"
                   />
                   <button
-                    disabled={true ? qty >= maxQuantity+1 : false}
+                    disabled={true ? qty >= maxQuantity + 1 : false}
                     onClick={incrementQty}
                     className="w-10 h-full flex items-center justify-center text-3xl"
                   >
@@ -363,7 +368,7 @@ const Product = () => {
                 </div>
                 <div className="flex gap-4  ">
                   <button
-                    disabled={true ? qty >= maxQuantity+1 : false}
+                    disabled={true ? qty >= maxQuantity + 1 : false}
                     className="uppercase border border-black px-6 py-2  bg-amber-950 text-white hover:bg-amber-700 w-64"
                     onClick={cartHandler}
                   >
