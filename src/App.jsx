@@ -9,10 +9,12 @@ import PerfumePage from './pages/PerfumePage/PerfumePage'
 import Checkout from './pages/checkout/Checkout'
 import PerfumeWax from './pages/perfume wax/PerfumeWax'
 import ScrollToTop from './components/ScrollToTop'
+import { ToastContainer } from "react-toastify";
 
 function App() {
 
-  return (
+  return (<>
+     <ToastContainer />
     <BrowserRouter>
     <ScrollToTop></ScrollToTop>
     <Navbar></Navbar>
@@ -26,6 +28,7 @@ function App() {
     </Routes>
     <Footer></Footer>
     </BrowserRouter>
+    </>
   )
 }
 

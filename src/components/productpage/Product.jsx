@@ -5,6 +5,7 @@ import { useCart } from "../../context/cart.context";
 import { useParams, useSearchParams } from "react-router-dom";
 import { FaLock } from "react-icons/fa";
 import axios from "axios";
+import { toast, ToastContainer } from 'react-toastify';
 
 const Product = () => {
   const { updateCart } = useCart();
@@ -95,8 +96,6 @@ const Product = () => {
   };
 
   const cartHandler = () => {
-    // console.log("products", product)
-    // console.log("products image", (product.sizes[0].img1))
     const tabletype = getTableNameForType(type);
 
     updateCart(
@@ -110,12 +109,17 @@ const Product = () => {
       product._id,
       sizeId
     );
+
+    toast.success("Product added to Cart");
   };
 
   if (!product.name) return <p>Loading...</p>;
   // console.log(product)
+
+
   return (
     <>
+      {/* <ToastContainer /> */}
       {type == "scentedCandle" &&
         <div className="max-w-7xl mx-auto p-6 flex flex-col lg:flex-row gap-8">
           <div className="flex-1">
