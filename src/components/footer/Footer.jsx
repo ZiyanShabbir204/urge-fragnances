@@ -1,6 +1,21 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
 
 const Footer = () => {
+  const [data, setData] = useState("");
+  const handleSubscribe = async () => {
+    try {
+      const res = await axios.post(`${import.meta.env.VITE_HOSTURL}/order/subscribe`)
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+  const handleChange = (e) => {
+    setData(e.target.value);
+    console.log(e.target.value);
+  }
+
   return (
     <>
       <footer className="bg-customOrange text-white py-10">
@@ -16,12 +31,16 @@ const Footer = () => {
                   type="text"
                   placeholder="Enter your email address or phone"
                   className="w-full border border-gray-300  py-2 px-4 focus:outline-none focus:ring focus:ring-gray-200"
+                  value={data}
+                  onClick={handleSubscribe}
+                  onChange={handleChange}
                 />
                 <button
                   type="submit"
                   className="bg-orange-900 text-white py-2 px-4 hover:bg-orange-800 w-1/2 md:w-1/2"
+
                 >
-                  Email
+                  Subscribe
                 </button>
               </form>
               <p className="text-sm mt-2">
@@ -125,7 +144,7 @@ const Footer = () => {
                     <a
                       href="#"
                       className="text-white hover:text-customBrown"
-                    >
+                    >w
                       Bulk Ordering
                     </a>
                   </li>
