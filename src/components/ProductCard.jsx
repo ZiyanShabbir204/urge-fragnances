@@ -27,8 +27,8 @@ const ProductCard = ({ name, price, img1, type }) => {
           src={dum}
           alt="Lavender Scented Candle"
           className="w-full h-auto rounded-t-lg picture"
-          onMouseOver={handleHover}
-          onMouseLeave={() => setDum(img1)}
+          // onMouseOver={handleHover}
+          // onMouseLeave={() => setDum(img1)}
         />
       </div>
       <div class="w-full max-w-sm flex justify-between items-center text-center text-customBlack pb-1 px-4">
