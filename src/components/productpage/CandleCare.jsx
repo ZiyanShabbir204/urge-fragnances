@@ -27,10 +27,10 @@ const CandleCare = () => {
                 <div>
                     <ol className='flex flex-col gap-10 justify-center'>
                         <li className='w-full xlg:w-2/3'><span>1. Trim The Wick:</span> <p> Before lighting, trim the wick to 1/4" using scissors for a clean,safe burn and increased candle lifespan.</p></li>
-                        <li className='w-full xlg:w-2/3'><span>2. Trim The Wick:</span> <p> Before lighting, trim the wick to 1/4" using scissors for a clean,safe burn and increased candle lifespan.</p></li>
-                        <li className='w-full xlg:w-2/3'><span>3. Trim The Wick:</span> <p> Before lighting, trim the wick to 1/4" using scissors for a clean,safe burn and increased candle lifespan.</p></li>
-                        <li className='w-full xlg:w-2/3'><span>4. Trim The Wick:</span> <p> Before lighting, trim the wick to 1/4" using scissors for a clean,safe burn and increased candle lifespan.</p></li>
-                        <li className='w-full xlg:w-2/3'><span>5. Trim The Wick:</span> <p> Before lighting, trim the wick to 1/4" using scissors for a clean,safe burn and increased candle lifespan.</p></li>
+                        <li className='w-full xlg:w-2/3'><span>2. Burn for the Right Time:</span> <p> For the first burn, allow the candle to melt the wax evenly across the surface, reaching the edges of the container. This prevents tunneling and maximizes the candle's lifespan.</p></li>
+                        <li className='w-full xlg:w-2/3'><span>3. Keep Away from Drafts:</span> <p> Avoid placing candles near open windows, fans, or vents. Drafts can cause uneven burning, excess smoke, or even extinguish the flame.</p></li>
+                        <li className='w-full xlg:w-2/3'><span>4. Use a Snuffer to Extinguish:</span> <p> Instead of blowing out the candle, use a snuffer to avoid splashing wax and producing smoke. This keeps the wick intact for future burns.</p></li>
+                        <li className='w-full xlg:w-2/3'><span>5. Store Properly:</span> <p> Store your candles in a cool, dry place away from direct sunlight or heat. This helps prevent discoloration, fading, or warping of the wax.</p></li>
                     </ol>
                 </div>
             </div>
