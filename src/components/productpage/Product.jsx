@@ -137,18 +137,29 @@ const Product = () => {
               </label>
               <div className="flex gap-4">
                 {product.sizes.map((sizeOption) => (
-                  <label key={sizeOption.size}>
-                    <input
-                      type="radio"
-                      value={sizeOption.size}
-                      checked={size === sizeOption.size} // Controlled by state
-                      onChange={handleSizeChange}
-                      className="mr-2"
-                    />
-                    {titleCase(sizeOption.size)}
-                  </label>
+                  <div>
+                    <label key={sizeOption.size}>
+                      <input
+                        type="radio"
+                        value={sizeOption.size}
+                        checked={size === sizeOption.size} // Controlled by state
+                        onChange={handleSizeChange}
+                        className="mr-2"
+                      />
+                      {titleCase(sizeOption.size)}
+                    </label>
+
+                  </div>
                 ))}
               </div>
+            </div>
+
+
+            <div className="mb-5 uppercase">
+              <label className="block text-lg font-medium text-gray-600 mb-1">
+                Burning Hours
+              </label>
+              {size == "medium" ? "24 Hours+" : "35 Hours+"}
             </div>
 
             <div className="qty-div">
