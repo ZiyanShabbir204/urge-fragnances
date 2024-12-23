@@ -76,15 +76,15 @@ const Checkout = () => {
       );
       if (response.status === 200) {
         orderCompleted();
-        // toast.success("Ordered successfully");
-        console.log("Response data success");
+        toast.success("Ordered successfully");
+        // console.log("Response data success");
         setTimeout(() => {
           navigate("/");
         }, 2000);
       }
     } catch (error) {
-      // toast.error(error.response.data.message);
-      console.error("Response data:", error);
+      toast.error(error.response.data.message);
+      // console.error("Response data:", error);
     } finally {
       setDisabled(false);
       reset();
