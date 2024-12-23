@@ -97,7 +97,7 @@ const Cart = ({ display, setDisplay }) => {
                   </div>
                   <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
                     <p>
-                      or
+                      or {" "}
                       <button
                         type="button"
                         class="font-medium text-customBrown"
