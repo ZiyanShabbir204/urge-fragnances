@@ -85,8 +85,8 @@ const PerfumePage = () => {
       <div className="px-6 grid grid-cols-1 sm:grid-cols-3 sm:gap-8 lg:gap-16 xl3:gap-24 place-items-center wrapper">
         <div
           className={`element ${gender === "Unisex"
-              ? "opacity-100 filter-none" // Active category styles
-              : "opacity-70 filter blur-[2px]" // Non-active categories
+            ? "opacity-100 filter-none" // Active category styles
+            : "opacity-70 filter blur-[2px]" // Non-active categories
             } transition-all duration-300`}
         >
           <Card
@@ -100,8 +100,8 @@ const PerfumePage = () => {
         </div>
         <div
           className={`element ${gender === "All"
-              ? "opacity-100 filter-none" // Active category styles
-              : "opacity-70 filter blur-[2px]" // Non-active categories
+            ? "opacity-100 filter-none" // Active category styles
+            : "opacity-70 filter blur-[2px]" // Non-active categories
             } transition-all duration-300`}
         >
           <Card
@@ -115,8 +115,8 @@ const PerfumePage = () => {
         </div>
         <div
           className={`element ${gender === "Male"
-              ? "opacity-100 filter-none" // Active category styles
-              : "opacity-70 filter blur-[2px]" // Non-active categories
+            ? "opacity-100 filter-none" // Active category styles
+            : "opacity-70 filter blur-[2px]" // Non-active categories
             } transition-all duration-300`}
         >
           <Card
@@ -130,15 +130,8 @@ const PerfumePage = () => {
         </div>
       </div>
       <h1 ref={perfumesRef} className="text-center mt-12 text-4xl font-bold">
-        {gender} Perfumes
       </h1>
-      {!fetchProduct ? <InfinitySpin
-        visible={true}
-        width="200"
-        color="#4fa94d"
-        ariaLabel="infinity-spin-loading"
-      /> : <Products product={fetchProduct} type="perfume" />}
-
+     <Products product={fetchProduct} type="perfume" />
     </>
   );
 };
