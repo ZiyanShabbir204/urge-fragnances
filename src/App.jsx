@@ -11,6 +11,7 @@ import PerfumeWax from './pages/perfume wax/PerfumeWax'
 import ScrollToTop from './components/ScrollToTop'
 import { ToastContainer } from "react-toastify";
 import Contact from './pages/contact/contact'
+import PrivacyPolicy from './pages/privacypolicy/policy'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
       <Route exact path="/productpage" element={<ProductPage></ProductPage>}></Route>
       <Route exact path="/checkout" element={<Checkout></Checkout>}></Route>
       <Route exact path="/contact" element={<Contact />}></Route>
+      <Route exact path="/privacypolicy" element={<PrivacyPolicy />}></Route>
     </Routes>
     <Footer></Footer>
     </BrowserRouter>
