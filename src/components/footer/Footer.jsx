@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Footer = () => {
@@ -35,13 +36,13 @@ const Footer = () => {
                 <input
                   type="text"
                   placeholder="Enter your email address or phone"
-                  className="w-full border border-gray-300  py-2 px-4 focus:outline-none focus:ring focus:ring-gray-200"
+                  className="rounded-md w-full border border-gray-300  py-2 px-4 focus:outline-none focus:ring focus:ring-gray-200"
                   value={data}
                   onChange={handleChange}
                 />
                 <button
                   type="submit"
-                  className="bg-orange-900 text-white py-2 px-4 hover:bg-orange-800 w-1/2 md:w-1/2"
+                  className="rounded-md bg-orange-900 text-white py-2 px-4 hover:bg-orange-800 w-1/2 md:w-1/2"
                   onClick={handleSubscribe}
                 >
                   Subscribe
@@ -137,9 +138,9 @@ const Footer = () => {
                   </li> */}
 
                   <li>
-                    <a href="#" className="text-white hover:text-customBrown">
-                      w Bulk Ordering
-                    </a>
+                    <Link to="/contact" href="#" className="text-white hover:text-customBrown">
+                      Bulk Ordering
+                    </Link>
                   </li>
 
                   {/* <li>
@@ -151,9 +152,9 @@ const Footer = () => {
                     </a>
                   </li> */}
                   <li>
-                    <a href="#" className="text-white hover:text-customBrown">
+                    <Link to="https://urge-game-new.vercel.app/#/quiz" className="text-white hover:text-customBrown">
                       Take Our Quiz
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
