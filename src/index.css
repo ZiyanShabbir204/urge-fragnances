@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, input{
+html, body, input, textarea{
     background-color: white;
     color: black;
 }

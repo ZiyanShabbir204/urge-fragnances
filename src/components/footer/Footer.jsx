@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 
 const Footer = () => {
   const [data, setData] = useState("");
   const handleSubscribe = async () => {
     try {
-      const res = await axios.post(`${import.meta.env.VITE_HOSTURL}/order/subscribe`)
+      const res = await axios.post(`${import.meta.env.VITE_HOSTURL}/user/subscribe`)
     } catch (error) {
-      console.log(error)
+      toast.error("Form submission failed");
     }
 
   }

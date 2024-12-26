@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 // import styles from "./contact.module.css";
 import { useForm } from "react-hook-form";
@@ -11,28 +12,28 @@ const Contact = () => {
     formState: { errors },
   } = useForm();
   const [disabled, setDisabled] = useState(false);
-//   const [alertInfo, setAlertInfo] = useState({
-//     display: false,
-//     message: "",
-//     type: "",
-//   });
+  //   const [alertInfo, setAlertInfo] = useState({
+  //     display: false,
+  //     message: "",
+  //     type: "",
+  //   });
 
-//   // Shows alert message for form submission feedback
-//   const toggleAlert = (message, type) => {
-//     setAlertInfo({ display: true, message, type });
+  //   // Shows alert message for form submission feedback
+  //   const toggleAlert = (message, type) => {
+  //     setAlertInfo({ display: true, message, type });
 
-//     // Hide alert after 5 seconds
-//     setTimeout(() => {
-//       setAlertInfo({ display: false, message: "", type: "" });
-//     }, 5000);
-//   };
+  //     // Hide alert after 5 seconds
+  //     setTimeout(() => {
+  //       setAlertInfo({ display: false, message: "", type: "" });
+  //     }, 5000);
+  //   };
 
   // Function called on submit that uses emailjs to send email of valid contact form
   const onSubmit = async (data) => {
     // Detect spams by checking honeypot field
     if (data.honeypot) {
       reset();
-      console.log("Spam email, discarding submission!");
+      // console.log("Spam email, discarding submission!");
       return;
     }
 
@@ -43,27 +44,28 @@ const Contact = () => {
       setDisabled(true);
 
       const templateParams = {
-        fullName,
+        name: fullName,
         email,
         subject,
         message,
       };
 
+      // const response=await axios.post
       console.log(templateParams)
-    // const response = await axios.post(
-    //     `${import.meta.env.VITE_HOSTURL}/order`,
-    //     templateParams
-    //   );
-    //   if (response.status === 200) {
-    //     toast.success("Form Submitted successfully");
-    //     // console.log("Response data success");
-    //     setTimeout(() => {
-    //       navigate("/");
-    //     }, 2000);
-    //   }
+      const response = await axios.post(
+        `${import.meta.env.VITE_HOSTURL}/user/contact`,
+        templateParams
+      );
+      if (response.status === 200) {
+        toast.success("Form Submitted successfully");
+        // console.log("Response data success");
+        setTimeout(() => {
+          navigate("/");
+        }, 2000);
+      }
 
     } catch (e) {
-    //   console.error(e);
+      //   console.error(e);
       toast.error("Form submission failed");
     } finally {
       // Re-enable form submission
