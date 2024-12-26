@@ -110,7 +110,7 @@ const Quiz = () => {
     };
 
     return (
-        <div className="container mx-auto p-6 quiz-container">
+        <div className="container min-h-screen mx-auto p-6 quiz-container">
             <h1 className="text-2xl font-bold text-center mb-6">Get your Personalized Perfume</h1>
 
             {/* Question 1 */}
