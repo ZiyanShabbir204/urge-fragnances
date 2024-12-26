@@ -152,7 +152,7 @@ const Footer = () => {
                     </a>
                   </li> */}
                   <li>
-                    <Link to="https://urge-game-new.vercel.app/#/quiz" className="text-white hover:text-customBrown">
+                    <Link to="/quiz" className="text-white hover:text-customBrown">
                       Take Our Quiz
                     </Link>
                   </li>
