@@ -6,7 +6,10 @@ const Footer = () => {
   const [data, setData] = useState("");
   const handleSubscribe = async () => {
     try {
-      const res = await axios.post(`${import.meta.env.VITE_HOSTURL}/user/subscribe`, data)
+      const res = await axios.post(`${import.meta.env.VITE_HOSTURL}/user/subscribe`, {data})
+      if (response.status === 200) {
+        toast.success("Subscribed successfully");
+      }
     } catch (error) {
       toast.error("Form submission failed");
     }
