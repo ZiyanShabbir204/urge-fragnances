@@ -3,6 +3,7 @@ import ScentedHero from "../../components/scentedCandle/ScentedHero";
 import Products from "../../components/scentedCandle/Products";
 import HeroImage from "../../assets/images/scentedcandles/hero-image.png"
 import axios from "axios";
+import { InfinitySpin } from "react-loader-spinner";
 
 const ScentedCandle = () => {
   const obj = {
@@ -44,8 +45,18 @@ const ScentedCandle = () => {
         para_02={obj.para_02}
         para_03={obj.para_03}
       />
+       {fetchProduct.length > 0 ? (
+         <Products product={fetchProduct} type="scentedCandle" />
+      ) : (
+        <InfinitySpin
+          visible={true}
+          width="500"
+          color="#4fa94d"
+          ariaLabel="infinity-spin-loading"
+        />
+      )}
 
-      <Products product={fetchProduct} type="scentedCandle" />
+     
     </>
   );
 };

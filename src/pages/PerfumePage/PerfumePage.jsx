@@ -1,16 +1,16 @@
 import React, { useEffect, useState, useRef } from "react";
 import ScentedHero from "../../components/scentedCandle/ScentedHero";
 import Products from "../../components/scentedCandle/Products";
-import HeroImage from "../../assets/images/perfume/hero-img.png"
+import HeroImage from "../../assets/images/perfume/hero-img.png";
 import Card from "../../components/perfume/Card";
 import men from "../../assets/images/perfume/men.jpg";
 import all from "../../assets/images/perfume/all.png";
 import unisex from "../../assets/images/perfume/unisex.jpg";
 import axios from "axios";
-import "../PerfumePage/perfumepage.css"
+import "../PerfumePage/perfumepage.css";
 import { InfinitySpin } from "react-loader-spinner";
 const PerfumePage = () => {
-  const [gender, setGender] = useState("All")
+  const [gender, setGender] = useState("All");
   const perfumesRef = useRef(null);
 
   const handleScrollToPerfumes = () => {
@@ -34,7 +34,6 @@ const PerfumePage = () => {
       "Discover our exclusive collection of vibrant notes designed for every personality and occasion.",
   };
 
-
   const obj2 = {
     title: "Unisex Collection",
     description: "Explore a wide range of fragrances suitable for everyone.",
@@ -47,29 +46,36 @@ const PerfumePage = () => {
     imageUrl_03: all,
   };
 
-
   const [fetchProduct, setFetchProduct] = useState([]);
   const fetchData = async () => {
     try {
       if (gender == "All") {
         const response = await axios.get(
-          `${import.meta.env.VITE_HOSTURL}/perfumes`
+          `${import.meta.env.VITE_HOSTURL}/perfumes`,{
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }
         );
         setFetchProduct(response.data);
       } else {
         const response = await axios.get(
-          `${import.meta.env.VITE_HOSTURL}/perfumes?gender=${gender}`
+          `${import.meta.env.VITE_HOSTURL}/perfumes?gender=${gender}`,{
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }
         );
         setFetchProduct(response.data);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   useEffect(() => {
     fetchData();
-  }, [gender])
+  }, [gender]);
 
   //   console.log("perfume products: ", fetchProduct);
   return (
@@ -84,10 +90,11 @@ const PerfumePage = () => {
 
       <div className="px-6 grid grid-cols-1 sm:grid-cols-3 sm:gap-8 lg:gap-16 xl3:gap-24 place-items-center wrapper">
         <div
-          className={`element ${gender === "Unisex"
-            ? "opacity-100 filter-none" // Active category styles
-            : "opacity-70 filter blur-[2px]" // Non-active categories
-            } transition-all duration-300`}
+          className={`element ${
+            gender === "Unisex"
+              ? "opacity-100 filter-none" // Active category styles
+              : "opacity-70 filter blur-[2px]" // Non-active categories
+          } transition-all duration-300`}
         >
           <Card
             title={obj2.title}
@@ -99,10 +106,11 @@ const PerfumePage = () => {
           />
         </div>
         <div
-          className={`element ${gender === "All"
-            ? "opacity-100 filter-none" // Active category styles
-            : "opacity-70 filter blur-[2px]" // Non-active categories
-            } transition-all duration-300`}
+          className={`element ${
+            gender === "All"
+              ? "opacity-100 filter-none" // Active category styles
+              : "opacity-70 filter blur-[2px]" // Non-active categories
+          } transition-all duration-300`}
         >
           <Card
             title={obj2.title_03}
@@ -114,10 +122,11 @@ const PerfumePage = () => {
           />
         </div>
         <div
-          className={`element ${gender === "Male"
-            ? "opacity-100 filter-none" // Active category styles
-            : "opacity-70 filter blur-[2px]" // Non-active categories
-            } transition-all duration-300`}
+          className={`element ${
+            gender === "Male"
+              ? "opacity-100 filter-none" // Active category styles
+              : "opacity-70 filter blur-[2px]" // Non-active categories
+          } transition-all duration-300`}
         >
           <Card
             title={obj2.title_02}
@@ -129,9 +138,23 @@ const PerfumePage = () => {
           />
         </div>
       </div>
-      <h1 ref={perfumesRef} className="text-center mt-12 text-4xl font-bold">
-      </h1>
-     <Products product={fetchProduct} type="perfume" />
+      <h1
+        ref={perfumesRef}
+        className="text-center mt-12 text-4xl font-bold"
+      ></h1>
+
+      {console.log("fetched product",fetchProduct)}
+
+      {fetchProduct.length > 0 ? (
+        <Products product={fetchProduct} type="perfume" />
+      ) : (
+        <InfinitySpin
+          visible={true}
+          width="500"
+          color="#4fa94d"
+          ariaLabel="infinity-spin-loading"
+        />
+      )}
     </>
   );
 };
